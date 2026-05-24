@@ -41,21 +41,24 @@
             color: var(--text);
             line-height: 1.8;
             overflow-x: hidden;
-            padding-bottom: 80px; /* مساحة للأزرار السفلية */
+            padding-bottom: 90px;
         }
 
+        /* ============ شريط العروض - أقل حجماً ============ */
         .promo-bar {
             position: fixed; top: 0; left: 0; width: 100%;
             background: linear-gradient(90deg, var(--brown-dark), var(--gold-dark), var(--brown-dark));
-            color: var(--white); text-align: center; padding: 8px 10px;
-            font-weight: 700; font-size: 0.85rem; z-index: 10001;
+            color: var(--white); text-align: center; padding: 6px 10px;
+            font-weight: 700; font-size: 0.8rem; z-index: 10001;
             animation: promoGlow 2s ease-in-out infinite;
-            display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
+            display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap;
+            height: 36px;
         }
-        @keyframes promoGlow { 0%,100%{box-shadow:0 0 20px rgba(200,150,62,0.3);} 50%{box-shadow:0 0 40px rgba(200,150,62,0.6);} }
-        .promo-bar i { animation: pulse 1.5s infinite; }
+        @keyframes promoGlow { 0%,100%{box-shadow:0 0 15px rgba(200,150,62,0.3);} 50%{box-shadow:0 0 30px rgba(200,150,62,0.6);} }
+        .promo-bar i { animation: pulse 1.5s infinite; font-size: 0.8rem; }
         @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.2);} }
-        .promo-bar .promo-code { background: var(--black); color: var(--gold-light); padding: 3px 10px; border-radius: 20px; font-family: monospace; font-size: 0.9rem; letter-spacing: 2px; }
+        .promo-bar .promo-code { background: var(--black); color: var(--gold-light); padding: 2px 8px; border-radius: 15px; font-family: monospace; font-size: 0.8rem; letter-spacing: 1px; }
+        .promo-bar strong { font-size: 0.85rem; }
 
         #progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light)); z-index: 10002; transition: width 0.1s linear; border-radius: 0 3px 3px 0; box-shadow: 0 0 20px rgba(200,150,62,0.6); }
 
@@ -65,280 +68,263 @@
         .gold-particle { position: absolute; background: var(--gold); border-radius: 50%; opacity: 0; animation: sparkle 4s infinite ease-in-out; box-shadow: 0 0 10px var(--gold-light), 0 0 30px var(--gold); }
         @keyframes sparkle { 0%,100%{opacity:0;transform:translateY(0)scale(0);} 20%{opacity:0.8;transform:translateY(-30px)scale(1);} 40%{opacity:0.3;transform:translateY(-60px)scale(0.5);} 60%{opacity:0.9;transform:translateY(-90px)scale(1.2);} 80%{opacity:0.1;transform:translateY(-120px)scale(0.3);} }
 
-        /* ============ شريط التنقل ============ */
+        /* ============ شريط التنقل - تحت شريط العروض ============ */
         .navbar {
-            position: fixed; top: 55px; left: 50%; transform: translateX(-50%);
-            width: 92%; max-width: 1300px;
-            background: rgba(10,10,10,0.85); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
-            border: 1px solid rgba(200,150,62,0.25); border-radius: var(--radius-xl);
-            padding: 10px 20px; z-index: 999;
+            position: fixed; top: 36px; left: 50%; transform: translateX(-50%);
+            width: 94%; max-width: 1300px;
+            background: rgba(10,10,10,0.88); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur);
+            border: 1px solid rgba(200,150,62,0.25); border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+            padding: 10px 18px; z-index: 999;
             display: flex; align-items: center; justify-content: space-between;
             transition: var(--transition); box-shadow: var(--shadow-dark);
         }
         .navbar.scrolled { background: rgba(10,10,10,0.95); border-color: rgba(200,150,62,0.4); top: 0; border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
-        .nav-logo-img { height: 45px; width: 45px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(200,150,62,0.4); transition: var(--transition); flex-shrink: 0; }
-        .navbar.scrolled .nav-logo-img { height: 38px; width: 38px; }
+        .nav-logo-img { height: 42px; width: 42px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(200,150,62,0.4); transition: var(--transition); flex-shrink: 0; }
+        .navbar.scrolled .nav-logo-img { height: 36px; width: 36px; }
         .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .nav-brand-text { font-family: 'El Messiri', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--gold); white-space: nowrap; }
-        .nav-links { display: flex; list-style: none; gap: 5px; align-items: center; }
-        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; padding: 8px 16px; border-radius: 50px; transition: var(--transition); font-size: 0.9rem; position: relative; overflow: hidden; border: 1px solid transparent; }
+        .nav-brand-text { font-family: 'El Messiri', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--gold); white-space: nowrap; }
+        .nav-links { display: flex; list-style: none; gap: 4px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text); font-weight: 600; padding: 8px 14px; border-radius: 50px; transition: var(--transition); font-size: 0.85rem; position: relative; overflow: hidden; border: 1px solid transparent; }
         .nav-links a::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); border-radius: 50px; transform: scale(0); transition: transform 0.4s ease; z-index: -1; }
         .nav-links a:hover::before, .nav-links a.active::before { transform: scale(1); }
         .nav-links a:hover, .nav-links a.active { color: var(--black); border-color: var(--gold); box-shadow: var(--shadow-gold); }
-        .nav-cta { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black) !important; font-weight: 700 !important; padding: 10px 22px !important; box-shadow: var(--shadow-gold); }
+        .nav-cta { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black) !important; font-weight: 700 !important; padding: 9px 20px !important; box-shadow: var(--shadow-gold); }
         .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 15px 45px rgba(200,150,62,0.5) !important; }
 
-        /* ✅ زر القائمة للموبايل - واضح ومنفصل */
+        /* ✅ زر القائمة للموبايل */
         .menu-toggle {
             display: none;
             background: rgba(200,150,62,0.2);
             border: 1px solid rgba(200,150,62,0.4);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             cursor: pointer;
             color: var(--gold);
-            width: 42px; height: 42px;
+            width: 40px; height: 40px;
             border-radius: 50%;
             transition: var(--transition);
             align-items: center; justify-content: center;
             flex-shrink: 0;
+            z-index: 1002;
         }
         .menu-toggle:hover { background: var(--gold); color: var(--black); }
 
-        /* ============ القائمة الجانبية للموبايل ============ */
+        /* ============ القائمة الجانبية - z-index أعلى ============ */
         .side-menu {
             position: fixed; top: 0; right: -100%;
             width: 85vw; max-width: 380px; height: 100vh;
             background: rgba(10,10,10,0.98); backdrop-filter: blur(30px);
-            z-index: 1001; padding: 35px 25px;
+            z-index: 10003;
+            padding: 50px 25px 35px;
             transition: right 0.4s cubic-bezier(0.22,1,0.36,1);
             border-left: 1px solid rgba(200,150,62,0.3); overflow-y: auto;
         }
         .side-menu.open { right: 0; }
         .side-menu-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.75);
-            z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+            z-index: 10002; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
         }
         .side-menu-overlay.show { opacity: 1; pointer-events: auto; }
-        .side-menu-logo { display: block; margin: 0 auto 20px; height: 80px; width: 80px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); border: 3px solid var(--gold); box-shadow: 0 0 35px rgba(200,150,62,0.35); }
-        .side-menu-links { list-style: none; display: flex; flex-direction: column; gap: 5px; }
-        .side-menu-links a { text-decoration: none; color: var(--text); font-weight: 600; padding: 13px 18px; border-radius: var(--radius-md); display: block; transition: var(--transition); border: 1px solid transparent; font-size: 0.95rem; }
-        .side-menu-links a:hover { background: rgba(200,150,62,0.15); color: var(--gold); border-color: rgba(200,150,62,0.3); transform: translateX(-6px); }
-        .side-menu-close { position: absolute; top: 15px; left: 15px; background: rgba(200,150,62,0.15); border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; color: var(--gold); transition: var(--transition); display: flex; align-items: center; justify-content: center; }
+        .side-menu-logo { display: block; margin: 0 auto 18px; height: 75px; width: 75px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); border: 2px solid var(--gold); box-shadow: 0 0 30px rgba(200,150,62,0.3); }
+        .side-menu-links { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+        .side-menu-links a { text-decoration: none; color: var(--text); font-weight: 600; padding: 12px 16px; border-radius: var(--radius-md); display: block; transition: var(--transition); border: 1px solid transparent; font-size: 0.9rem; }
+        .side-menu-links a:hover { background: rgba(200,150,62,0.15); color: var(--gold); border-color: rgba(200,150,62,0.3); transform: translateX(-5px); }
+        .side-menu-close { position: absolute; top: 15px; left: 15px; background: rgba(200,150,62,0.15); border: none; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 1rem; color: var(--gold); transition: var(--transition); display: flex; align-items: center; justify-content: center; }
         .side-menu-close:hover { background: #c0392b; color: #fff; transform: rotate(90deg); }
 
         /* ============ القسم الرئيسي ============ */
-        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding: 150px 20px 60px; }
-        .hero-container { position: relative; z-index: 1; max-width: 850px; }
-        .hero-logo-frame { display: inline-block; background: rgba(62,39,35,0.4); backdrop-filter: var(--blur); border-radius: 50%; padding: 18px; margin-bottom: 25px; border: 3px solid var(--gold); box-shadow: 0 0 70px rgba(200,150,62,0.3),0 25px 50px rgba(0,0,0,0.4); animation: floatLogo 6s ease-in-out infinite; }
-        @keyframes floatLogo { 0%,100%{transform:translateY(0)scale(1);box-shadow:0 0 70px rgba(200,150,62,0.3);} 50%{transform:translateY(-15px)scale(1.03);box-shadow:0 0 100px rgba(200,150,62,0.5);} }
-        .hero-logo { width: 160px; height: 160px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); display: block; }
-        .hero-badge { display: inline-block; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); padding: 8px 22px; border-radius: 50px; font-weight: 800; font-size: 0.85rem; margin-bottom: 18px; letter-spacing: 2px; box-shadow: var(--shadow-gold); }
-        .hero h1 { font-family: 'El Messiri', sans-serif; font-size: clamp(2.2rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 12px; background: linear-gradient(180deg, var(--white) 30%, var(--gold-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .typing-container { font-size: 1.1rem; color: var(--text); opacity: 0.85; margin-bottom: 30px; min-height: 35px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding: 140px 18px 50px; }
+        .hero-container { position: relative; z-index: 1; max-width: 800px; }
+        .hero-logo-frame { display: inline-block; background: rgba(62,39,35,0.4); backdrop-filter: var(--blur); border-radius: 50%; padding: 16px; margin-bottom: 22px; border: 3px solid var(--gold); box-shadow: 0 0 60px rgba(200,150,62,0.3),0 20px 40px rgba(0,0,0,0.4); animation: floatLogo 6s ease-in-out infinite; }
+        @keyframes floatLogo { 0%,100%{transform:translateY(0)scale(1);box-shadow:0 0 60px rgba(200,150,62,0.3);} 50%{transform:translateY(-12px)scale(1.03);box-shadow:0 0 90px rgba(200,150,62,0.5);} }
+        .hero-logo { width: 140px; height: 140px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); display: block; }
+        .hero-badge { display: inline-block; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); padding: 7px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 16px; letter-spacing: 1.5px; box-shadow: var(--shadow-gold); }
+        .hero h1 { font-family: 'El Messiri', sans-serif; font-size: clamp(2rem, 5.5vw, 4rem); font-weight: 700; line-height: 1.2; margin-bottom: 10px; background: linear-gradient(180deg, var(--white) 30%, var(--gold-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .typing-container { font-size: 1rem; color: var(--text); opacity: 0.85; margin-bottom: 25px; min-height: 30px; display: flex; align-items: center; justify-content: center; gap: 4px; }
         .typing-text { color: var(--gold-light); font-weight: 600; }
-        .typing-cursor { display: inline-block; width: 3px; height: 22px; background: var(--gold); animation: blink 0.8s infinite; }
+        .typing-cursor { display: inline-block; width: 2px; height: 20px; background: var(--gold); animation: blink 0.8s infinite; }
         @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
-        .achievements { display: flex; justify-content: center; gap: 20px; margin: 25px 0; flex-wrap: wrap; }
-        .achievement-item { text-align: center; background: rgba(30,30,30,0.5); backdrop-filter: var(--blur); border: 1px solid rgba(200,150,62,0.15); border-radius: var(--radius-lg); padding: 18px 20px; min-width: 110px; transition: var(--transition); }
-        .achievement-item:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .achievement-number { font-family: 'El Messiri', sans-serif; font-size: 2.2rem; font-weight: 900; color: var(--gold); display: block; }
-        .achievement-label { font-size: 0.8rem; color: var(--text); opacity: 0.8; }
-        .btn { padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: var(--transition); border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-family: 'Cairo', sans-serif; }
+        .achievements { display: flex; justify-content: center; gap: 15px; margin: 22px 0; flex-wrap: wrap; }
+        .achievement-item { text-align: center; background: rgba(30,30,30,0.5); backdrop-filter: var(--blur); border: 1px solid rgba(200,150,62,0.15); border-radius: var(--radius-lg); padding: 15px 18px; min-width: 100px; transition: var(--transition); }
+        .achievement-item:hover { border-color: var(--gold); transform: translateY(-4px); }
+        .achievement-number { font-family: 'El Messiri', sans-serif; font-size: 2rem; font-weight: 900; color: var(--gold); display: block; }
+        .achievement-label { font-size: 0.75rem; color: var(--text); opacity: 0.8; }
+        .btn { padding: 13px 28px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 0.9rem; transition: var(--transition); border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; font-family: 'Cairo', sans-serif; }
         .btn-gold { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); box-shadow: var(--shadow-gold); }
-        .btn-gold:hover { transform: translateY(-4px); box-shadow: 0 18px 50px rgba(200,150,62,0.5); }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(200,150,62,0.5); }
         .btn-outline { background: transparent; color: var(--gold); border: 2px solid var(--gold); }
-        .btn-outline:hover { background: var(--gold); color: var(--black); transform: translateY(-4px); box-shadow: var(--shadow-gold); }
+        .btn-outline:hover { background: var(--gold); color: var(--black); transform: translateY(-3px); box-shadow: var(--shadow-gold); }
 
-        .section { padding: 60px 20px; max-width: 1300px; margin: 0 auto; position: relative; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-badge { display: inline-block; background: rgba(200,150,62,0.1); border: 1px solid rgba(200,150,62,0.3); padding: 7px 18px; border-radius: 50px; font-weight: 700; font-size: 0.8rem; color: var(--gold); margin-bottom: 12px; letter-spacing: 1px; }
-        .section-title { font-family: 'El Messiri', sans-serif; font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 700; color: var(--white); margin-bottom: 8px; }
-        .section-line { width: 80px; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 12px auto 0; border-radius: 2px; }
+        .section { padding: 55px 18px; max-width: 1300px; margin: 0 auto; position: relative; }
+        .section-header { text-align: center; margin-bottom: 45px; }
+        .section-badge { display: inline-block; background: rgba(200,150,62,0.1); border: 1px solid rgba(200,150,62,0.3); padding: 6px 16px; border-radius: 50px; font-weight: 700; font-size: 0.78rem; color: var(--gold); margin-bottom: 10px; letter-spacing: 1px; }
+        .section-title { font-family: 'El Messiri', sans-serif; font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 700; color: var(--white); margin-bottom: 6px; }
+        .section-line { width: 70px; height: 3px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 10px auto 0; border-radius: 2px; }
 
-        .marble-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px; }
+        .marble-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
         .marble-card { background: rgba(30,30,30,0.6); backdrop-filter: var(--blur); border: 1px solid rgba(200,150,62,0.15); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer; position: relative; }
-        .marble-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 25px 50px rgba(0,0,0,0.5),0 0 25px rgba(200,150,62,0.2); }
-        .marble-card.bestseller::before { content: '🔥 الأكثر مبيعاً'; position: absolute; top: 12px; left: 12px; background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; padding: 4px 12px; border-radius: 20px; font-weight: 700; font-size: 0.7rem; z-index: 3; box-shadow: 0 4px 18px rgba(231,76,60,0.5); animation: bestsellerPulse 2s infinite; }
-        @keyframes bestsellerPulse { 0%,100%{box-shadow:0 4px 18px rgba(231,76,60,0.5);} 50%{box-shadow:0 7px 30px rgba(231,76,60,0.8);} }
+        .marble-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5),0 0 20px rgba(200,150,62,0.2); }
+        .marble-card.bestseller::before { content: '🔥 الأكثر مبيعاً'; position: absolute; top: 10px; left: 10px; background: linear-gradient(135deg, #e74c3c, #c0392b); color: #fff; padding: 4px 10px; border-radius: 15px; font-weight: 700; font-size: 0.65rem; z-index: 3; box-shadow: 0 3px 15px rgba(231,76,60,0.5); animation: bestsellerPulse 2s infinite; }
+        @keyframes bestsellerPulse { 0%,100%{box-shadow:0 3px 15px rgba(231,76,60,0.5);} 50%{box-shadow:0 6px 25px rgba(231,76,60,0.8);} }
         .marble-card.bestseller { border-color: rgba(231,76,60,0.4); }
-        .marble-card-img { width: 100%; height: 220px; object-fit: cover; transition: var(--transition); }
-        .marble-card:hover .marble-card-img { transform: scale(1.04); }
-        .marble-card-body { padding: 18px 16px; }
-        .marble-card-body h4 { font-family: 'El Messiri', sans-serif; font-size: 1.05rem; color: var(--gold); margin-bottom: 5px; }
-        .marble-card-body p { font-size: 0.85rem; color: var(--text); opacity: 0.8; }
-        .marble-card-badge { position: absolute; top: 12px; right: 12px; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); padding: 5px 14px; border-radius: 50px; font-weight: 700; font-size: 0.75rem; z-index: 2; box-shadow: 0 3px 12px rgba(200,150,62,0.3); }
-        .marble-card .share-btns { position: absolute; bottom: 12px; left: 12px; display: flex; gap: 6px; opacity: 0; transition: var(--transition); z-index: 2; }
+        .marble-card-img { width: 100%; height: 200px; object-fit: cover; transition: var(--transition); }
+        .marble-card:hover .marble-card-img { transform: scale(1.03); }
+        .marble-card-body { padding: 16px 14px; }
+        .marble-card-body h4 { font-family: 'El Messiri', sans-serif; font-size: 1rem; color: var(--gold); margin-bottom: 4px; }
+        .marble-card-body p { font-size: 0.8rem; color: var(--text); opacity: 0.8; }
+        .marble-card-badge { position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); padding: 4px 12px; border-radius: 50px; font-weight: 700; font-size: 0.7rem; z-index: 2; box-shadow: 0 3px 10px rgba(200,150,62,0.3); }
+        .marble-card .share-btns { position: absolute; bottom: 10px; left: 10px; display: flex; gap: 5px; opacity: 0; transition: var(--transition); z-index: 2; }
         .marble-card:hover .share-btns { opacity: 1; }
-        .share-btn { width: 30px; height: 30px; border-radius: 50%; background: var(--gold); color: var(--black); border: none; cursor: pointer; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .share-btn { width: 28px; height: 28px; border-radius: 50%; background: var(--gold); color: var(--black); border: none; cursor: pointer; font-size: 0.75rem; display: flex; align-items: center; justify-content: center; transition: var(--transition); }
         .share-btn:hover { background: var(--gold-light); transform: scale(1.1); }
 
-        .clatite-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
+        .clatite-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 15px; }
         .clatite-card { background: rgba(30,30,30,0.5); border: 1px solid rgba(200,150,62,0.12); border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition); cursor: pointer; }
-        .clatite-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-        .clatite-card img { width: 100%; height: 200px; object-fit: cover; transition: var(--transition); }
-        .clatite-card:hover img { transform: scale(1.04); }
-        .clatite-card-body { padding: 14px; text-align: center; }
-        .clatite-card-body span { color: var(--gold-light); font-weight: 700; font-size: 0.85rem; }
+        .clatite-card:hover { transform: translateY(-6px); border-color: var(--gold); box-shadow: 0 18px 35px rgba(0,0,0,0.5); }
+        .clatite-card img { width: 100%; height: 180px; object-fit: cover; transition: var(--transition); }
+        .clatite-card:hover img { transform: scale(1.03); }
+        .clatite-card-body { padding: 12px; text-align: center; }
+        .clatite-card-body span { color: var(--gold-light); font-weight: 700; font-size: 0.8rem; }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-card { background: rgba(30,30,30,0.5); backdrop-filter: var(--blur); border: 1px solid rgba(200,150,62,0.1); border-radius: var(--radius-lg); padding: 35px 25px; text-align: center; transition: var(--transition); position: relative; overflow: hidden; }
-        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); transform: scaleX(0); transition: transform 0.5s ease; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
+        .service-card { background: rgba(30,30,30,0.5); backdrop-filter: var(--blur); border: 1px solid rgba(200,150,62,0.1); border-radius: var(--radius-lg); padding: 30px 22px; text-align: center; transition: var(--transition); position: relative; overflow: hidden; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--gold-dark), var(--gold-light)); transform: scaleX(0); transition: transform 0.5s ease; }
         .service-card:hover::before { transform: scaleX(1); }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
-        .service-icon { font-size: 3rem; margin-bottom: 18px; display: block; }
-        .service-card h4 { font-family: 'El Messiri', sans-serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 8px; }
-        .service-card p { color: var(--text); opacity: 0.8; font-size: 0.9rem; }
+        .service-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 20px 45px rgba(0,0,0,0.5); }
+        .service-icon { font-size: 2.8rem; margin-bottom: 15px; display: block; }
+        .service-card h4 { font-family: 'El Messiri', sans-serif; font-size: 1.1rem; color: var(--gold); margin-bottom: 7px; }
+        .service-card p { color: var(--text); opacity: 0.8; font-size: 0.85rem; }
 
-        .timeline-steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; position: relative; }
-        .timeline-steps::before { content: ''; position: absolute; top: 30px; left: 8%; width: 84%; height: 2px; background: var(--gold-dark); z-index: 0; }
-        .step-item { text-align: center; z-index: 1; flex: 0 0 120px; }
-        .step-circle { width: 60px; height: 60px; border-radius: 50%; background: var(--black-light); border: 3px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.6rem; transition: var(--transition); }
-        .step-item:hover .step-circle { background: var(--gold); border-color: var(--gold-light); box-shadow: 0 0 35px rgba(200,150,62,0.5); transform: scale(1.1); }
-        .step-item h5 { font-family: 'El Messiri', sans-serif; color: var(--gold); font-size: 0.85rem; margin-bottom: 3px; }
-        .step-item p { font-size: 0.7rem; color: var(--text); opacity: 0.7; }
+        .timeline-steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; position: relative; }
+        .timeline-steps::before { content: ''; position: absolute; top: 28px; left: 8%; width: 84%; height: 2px; background: var(--gold-dark); z-index: 0; }
+        .step-item { text-align: center; z-index: 1; flex: 0 0 110px; }
+        .step-circle { width: 55px; height: 55px; border-radius: 50%; background: var(--black-light); border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: 1.4rem; transition: var(--transition); }
+        .step-item:hover .step-circle { background: var(--gold); border-color: var(--gold-light); box-shadow: 0 0 30px rgba(200,150,62,0.5); transform: scale(1.08); }
+        .step-item h5 { font-family: 'El Messiri', sans-serif; color: var(--gold); font-size: 0.8rem; margin-bottom: 2px; }
+        .step-item p { font-size: 0.68rem; color: var(--text); opacity: 0.7; }
 
-        .warranty-badge { display: inline-flex; align-items: center; gap: 10px; background: rgba(200,150,62,0.1); border: 1px solid rgba(200,150,62,0.3); padding: 12px 25px; border-radius: var(--radius-xl); font-weight: 700; color: var(--gold); font-size: 0.95rem; margin: 18px auto; text-align: center; box-shadow: 0 0 25px rgba(200,150,62,0.15); }
-        .warranty-badge i { font-size: 1.4rem; color: var(--gold-light); }
+        .warranty-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,150,62,0.1); border: 1px solid rgba(200,150,62,0.3); padding: 10px 22px; border-radius: var(--radius-xl); font-weight: 700; color: var(--gold); font-size: 0.9rem; margin: 15px auto; text-align: center; box-shadow: 0 0 20px rgba(200,150,62,0.12); }
+        .warranty-badge i { font-size: 1.3rem; color: var(--gold-light); }
 
-        .viewer-360 { width: 100%; max-width: 650px; height: 350px; margin: 0 auto; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid rgba(200,150,62,0.3); position: relative; cursor: grab; background: var(--black-light); display: flex; align-items: center; justify-content: center; user-select: none; }
+        .viewer-360 { width: 100%; max-width: 600px; height: 300px; margin: 0 auto; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid rgba(200,150,62,0.3); position: relative; cursor: grab; background: var(--black-light); display: flex; align-items: center; justify-content: center; user-select: none; }
         .viewer-360:active { cursor: grabbing; }
         .viewer-360 img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.1s linear; }
-        .viewer-360 .drag-hint { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: var(--gold); padding: 5px 15px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; pointer-events: none; animation: fadeHint 3s forwards; }
+        .viewer-360 .drag-hint { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color: var(--gold); padding: 4px 12px; border-radius: 15px; font-size: 0.7rem; font-weight: 600; pointer-events: none; animation: fadeHint 3s forwards; }
         @keyframes fadeHint { 0%,70%{opacity:1;} 100%{opacity:0;} }
-        .viewer-controls { display: flex; justify-content: center; gap: 12px; margin-top: 12px; }
-        .viewer-btn { width: 38px; height: 38px; border-radius: 50%; background: var(--black-light); border: 1px solid var(--gold); color: var(--gold); cursor: pointer; font-size: 0.95rem; transition: var(--transition); }
+        .viewer-controls { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+        .viewer-btn { width: 35px; height: 35px; border-radius: 50%; background: var(--black-light); border: 1px solid var(--gold); color: var(--gold); cursor: pointer; font-size: 0.9rem; transition: var(--transition); }
         .viewer-btn:hover { background: var(--gold); color: var(--black); }
 
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .testimonial-card { background: rgba(30,30,30,0.5); backdrop-filter: var(--blur); border: 1px solid rgba(200,150,62,0.12); border-radius: var(--radius-lg); padding: 28px 22px; transition: var(--transition); text-align: center; }
-        .testimonial-card:hover { border-color: var(--gold); transform: translateY(-6px); }
-        .testimonial-stars { color: var(--gold); font-size: 1rem; margin-bottom: 10px; }
-        .testimonial-text { font-size: 0.95rem; color: var(--text); line-height: 1.8; margin-bottom: 12px; font-style: italic; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+        .testimonial-card { background: rgba(30,30,30,0.5); backdrop-filter: var(--blur); border: 1px solid rgba(200,150,62,0.12); border-radius: var(--radius-lg); padding: 25px 20px; transition: var(--transition); text-align: center; }
+        .testimonial-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .testimonial-stars { color: var(--gold); font-size: 0.95rem; margin-bottom: 8px; }
+        .testimonial-text { font-size: 0.9rem; color: var(--text); line-height: 1.8; margin-bottom: 10px; font-style: italic; }
         .testimonial-author { font-weight: 700; color: var(--gold-light); }
-        .testimonial-role { font-size: 0.75rem; opacity: 0.7; }
+        .testimonial-role { font-size: 0.7rem; opacity: 0.7; }
 
-        .map-container { width: 100%; max-width: 750px; height: 300px; margin: 0 auto; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid rgba(200,150,62,0.3); }
+        .map-container { width: 100%; max-width: 700px; height: 260px; margin: 0 auto; border-radius: var(--radius-xl); overflow: hidden; border: 1px solid rgba(200,150,62,0.3); }
         .map-container iframe { width: 100%; height: 100%; border: none; }
 
-        .quote-form { max-width: 600px; margin: 0 auto; background: rgba(30,30,30,0.5); backdrop-filter: var(--blur); border: 1px solid rgba(200,150,62,0.15); border-radius: var(--radius-xl); padding: 35px 25px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; color: var(--gold); font-weight: 600; margin-bottom: 5px; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; background: var(--black-light); border: 1px solid rgba(200,150,62,0.2); border-radius: var(--radius-md); color: var(--text); font-family: 'Cairo', sans-serif; font-size: 0.9rem; transition: var(--transition); }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 18px rgba(200,150,62,0.15); }
-        .form-group textarea { resize: vertical; min-height: 90px; }
-        .form-submit { width: 100%; padding: 14px; border-radius: 50px; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); font-weight: 800; font-size: 1rem; border: none; cursor: pointer; font-family: 'Cairo', sans-serif; transition: var(--transition); box-shadow: var(--shadow-gold); }
-        .form-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 45px rgba(200,150,62,0.5); }
-        .form-success { display: none; text-align: center; color: #2ecc71; font-weight: 700; padding: 18px; }
+        .quote-form { max-width: 550px; margin: 0 auto; background: rgba(30,30,30,0.5); backdrop-filter: var(--blur); border: 1px solid rgba(200,150,62,0.15); border-radius: var(--radius-xl); padding: 30px 22px; }
+        .form-group { margin-bottom: 14px; }
+        .form-group label { display: block; color: var(--gold); font-weight: 600; margin-bottom: 4px; font-size: 0.9rem; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 11px 14px; background: var(--black-light); border: 1px solid rgba(200,150,62,0.2); border-radius: var(--radius-md); color: var(--text); font-family: 'Cairo', sans-serif; font-size: 0.85rem; transition: var(--transition); }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 15px rgba(200,150,62,0.12); }
+        .form-group textarea { resize: vertical; min-height: 80px; }
+        .form-submit { width: 100%; padding: 13px; border-radius: 50px; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); font-weight: 800; font-size: 0.95rem; border: none; cursor: pointer; font-family: 'Cairo', sans-serif; transition: var(--transition); box-shadow: var(--shadow-gold); }
+        .form-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(200,150,62,0.5); }
+        .form-success { display: none; text-align: center; color: #2ecc71; font-weight: 700; padding: 15px; font-size: 0.9rem; }
 
-        /* ✅ دردشة واتساب */
-        .whatsapp-chat { position: fixed; bottom: 95px; right: 20px; width: 300px; background: var(--black-light); border: 1px solid rgba(37,211,102,0.3); border-radius: var(--radius-xl); z-index: 996; display: none; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.6); }
+        .whatsapp-chat { position: fixed; bottom: 100px; right: 18px; width: 280px; background: var(--black-light); border: 1px solid rgba(37,211,102,0.3); border-radius: var(--radius-xl); z-index: 996; display: none; overflow: hidden; box-shadow: 0 20px 45px rgba(0,0,0,0.6); }
         .whatsapp-chat.open { display: block; animation: slideUp 0.4s ease; }
-        @keyframes slideUp { from{opacity:0;transform:translateY(25px);} to{opacity:1;transform:translateY(0);} }
-        .whatsapp-chat-header { background: #075e54; color: #fff; padding: 14px 18px; font-weight: 700; display: flex; align-items: center; gap: 8px; font-size: 0.9rem; }
-        .whatsapp-chat-body { padding: 18px; max-height: 230px; overflow-y: auto; }
-        .whatsapp-chat-body .msg { background: rgba(255,255,255,0.05); padding: 10px 14px; border-radius: var(--radius-md); margin-bottom: 8px; font-size: 0.85rem; line-height: 1.7; }
-        .whatsapp-chat-body .quick-reply { display: block; width: 100%; text-align: right; padding: 9px 14px; background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.2); border-radius: var(--radius-sm); color: var(--green); margin-bottom: 7px; cursor: pointer; font-weight: 600; transition: var(--transition); font-family: 'Cairo', sans-serif; font-size: 0.85rem; }
+        @keyframes slideUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+        .whatsapp-chat-header { background: #075e54; color: #fff; padding: 12px 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+        .whatsapp-chat-body { padding: 15px; max-height: 200px; overflow-y: auto; }
+        .whatsapp-chat-body .msg { background: rgba(255,255,255,0.05); padding: 8px 12px; border-radius: var(--radius-md); margin-bottom: 7px; font-size: 0.8rem; line-height: 1.7; }
+        .whatsapp-chat-body .quick-reply { display: block; width: 100%; text-align: right; padding: 8px 12px; background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.2); border-radius: var(--radius-sm); color: var(--green); margin-bottom: 6px; cursor: pointer; font-weight: 600; transition: var(--transition); font-family: 'Cairo', sans-serif; font-size: 0.8rem; }
         .whatsapp-chat-body .quick-reply:hover { background: rgba(37,211,102,0.2); }
 
-        /* ✅ الأزرار العائمة - منفصلة ومرتبة */
+        /* ✅ الأزرار العائمة - تحت بعضها البعض */
         .floating-buttons {
-            position: fixed; bottom: 20px; right: 20px;
-            display: flex; flex-direction: column; gap: 12px;
+            position: fixed; bottom: 18px; right: 18px;
+            display: flex; flex-direction: column; gap: 10px;
             z-index: 997;
         }
-
-        .whatsapp-float {
-            width: 55px; height: 55px; background: #25D366; color: #fff;
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.6rem; box-shadow: 0 8px 30px rgba(37,211,102,0.4);
-            transition: var(--transition); text-decoration: none; border: none; cursor: pointer;
-        }
-        .whatsapp-float:hover { transform: scale(1.15); box-shadow: 0 12px 40px rgba(37,211,102,0.6); }
-
-        .call-float {
-            width: 55px; height: 55px; background: var(--gold); color: var(--black);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; box-shadow: 0 8px 30px rgba(200,150,62,0.4);
-            transition: var(--transition); text-decoration: none; border: none; cursor: pointer;
-        }
-        .call-float:hover { transform: scale(1.15); box-shadow: 0 12px 40px rgba(200,150,62,0.6); }
-
-        .music-toggle {
-            width: 55px; height: 55px; background: var(--black-light);
-            border: 1px solid var(--gold); color: var(--gold);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-            cursor: pointer; transition: var(--transition);
-        }
+        .whatsapp-float { width: 50px; height: 50px; background: #25D366; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; box-shadow: 0 7px 25px rgba(37,211,102,0.4); transition: var(--transition); text-decoration: none; border: none; cursor: pointer; }
+        .whatsapp-float:hover { transform: scale(1.12); box-shadow: 0 10px 35px rgba(37,211,102,0.6); }
+        .call-float { width: 50px; height: 50px; background: var(--gold); color: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; box-shadow: 0 7px 25px rgba(200,150,62,0.4); transition: var(--transition); text-decoration: none; border: none; cursor: pointer; }
+        .call-float:hover { transform: scale(1.12); box-shadow: 0 10px 35px rgba(200,150,62,0.6); }
+        .music-toggle { width: 50px; height: 50px; background: var(--black-light); border: 1px solid var(--gold); color: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 7px 25px rgba(0,0,0,0.4); cursor: pointer; transition: var(--transition); }
         .music-toggle:hover { background: var(--gold); color: var(--black); }
         .music-toggle.playing { animation: musicPulse 1.5s infinite; }
-        @keyframes musicPulse { 0%,100%{box-shadow:0 0 10px rgba(200,150,62,0.3);} 50%{box-shadow:0 0 25px rgba(200,150,62,0.6);} }
+        @keyframes musicPulse { 0%,100%{box-shadow:0 0 8px rgba(200,150,62,0.3);} 50%{box-shadow:0 0 22px rgba(200,150,62,0.6);} }
 
-        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 2000; display: none; align-items: center; justify-content: center; }
+        .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 2000; display: none; align-items: center; justify-content: center; }
         .modal-overlay.show { display: flex; }
-        .modal { background: var(--black-light); border: 1px solid rgba(200,150,62,0.3); border-radius: var(--radius-xl); padding: 35px 25px; max-width: 700px; width: 92%; position: relative; animation: modalPop 0.5s cubic-bezier(0.22,1,0.36,1); max-height: 85vh; overflow-y: auto; }
-        @keyframes modalPop { from{transform:scale(0.85)translateY(25px);opacity:0;} to{transform:scale(1)translateY(0);opacity:1;} }
-        .modal img { width: 100%; border-radius: var(--radius-md); margin-bottom: 18px; }
-        .modal h3 { font-family: 'El Messiri', sans-serif; color: var(--gold); font-size: 1.4rem; margin-bottom: 8px; }
-        .modal-close { position: absolute; top: 10px; right: 10px; background: rgba(200,150,62,0.15); border: none; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; color: var(--gold); transition: var(--transition); display: flex; align-items: center; justify-content: center; }
+        .modal { background: var(--black-light); border: 1px solid rgba(200,150,62,0.3); border-radius: var(--radius-xl); padding: 30px 22px; max-width: 650px; width: 92%; position: relative; animation: modalPop 0.5s cubic-bezier(0.22,1,0.36,1); max-height: 85vh; overflow-y: auto; }
+        @keyframes modalPop { from{transform:scale(0.85)translateY(20px);opacity:0;} to{transform:scale(1)translateY(0);opacity:1;} }
+        .modal img { width: 100%; border-radius: var(--radius-md); margin-bottom: 15px; }
+        .modal h3 { font-family: 'El Messiri', sans-serif; color: var(--gold); font-size: 1.3rem; margin-bottom: 6px; }
+        .modal-close { position: absolute; top: 8px; right: 8px; background: rgba(200,150,62,0.15); border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-size: 1.1rem; color: var(--gold); transition: var(--transition); display: flex; align-items: center; justify-content: center; }
         .modal-close:hover { background: #c0392b; color: #fff; transform: rotate(90deg); }
 
-        .footer { background: var(--brown-dark); border-top: 1px solid rgba(200,150,62,0.2); text-align: center; padding: 40px 20px 30px; color: var(--text); }
-        .footer-logo { height: 80px; width: 80px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); border: 2px solid var(--gold); margin-bottom: 18px; }
-        .footer h3 { font-family: 'El Messiri', sans-serif; color: var(--gold); margin-bottom: 6px; }
+        .footer { background: var(--brown-dark); border-top: 1px solid rgba(200,150,62,0.2); text-align: center; padding: 35px 18px 25px; color: var(--text); }
+        .footer-logo { height: 70px; width: 70px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); border: 2px solid var(--gold); margin-bottom: 15px; }
+        .footer h3 { font-family: 'El Messiri', sans-serif; color: var(--gold); margin-bottom: 5px; font-size: 1.1rem; }
         .footer a { color: var(--gold-light); text-decoration: none; }
 
-        /* ============ تجاوب مع جميع الأجهزة ============ */
+        /* ============ تجاوب ============ */
         @media (max-width: 1024px) {
             .nav-links { display: none; }
             .menu-toggle { display: flex; align-items: center; justify-content: center; }
-            .nav-brand-text { font-size: 1rem; }
+            .nav-brand-text { font-size: 0.95rem; }
         }
-
         @media (max-width: 768px) {
-            .navbar { width: 95%; padding: 8px 15px; top: 45px; }
-            .navbar.scrolled { top: 0; }
-            .nav-logo-img { height: 38px; width: 38px; }
-            .hero-logo { width: 130px; height: 130px; }
-            .hero-logo-frame { padding: 14px; }
-            .hero { padding-top: 140px; }
-            .section { padding: 45px 15px; }
+            .navbar { width: 96%; padding: 8px 14px; top: 36px; border-radius: 0 0 var(--radius-md) var(--radius-md); }
+            .navbar.scrolled { top: 0; border-radius: 0 0 var(--radius-md) var(--radius-md); }
+            .nav-logo-img { height: 36px; width: 36px; }
+            .hero-logo { width: 110px; height: 110px; }
+            .hero-logo-frame { padding: 12px; }
+            .hero { padding-top: 130px; }
+            .section { padding: 40px 14px; }
             .marble-grid { grid-template-columns: 1fr; }
             .side-menu { width: 85vw; right: -85vw; }
-            .achievements { gap: 12px; }
-            .achievement-item { min-width: 95px; padding: 14px 15px; }
-            .achievement-number { font-size: 1.8rem; }
+            .achievements { gap: 10px; }
+            .achievement-item { min-width: 85px; padding: 12px 14px; }
+            .achievement-number { font-size: 1.6rem; }
             .timeline-steps::before { display: none; }
             .step-item { flex: 0 0 45%; }
-            .whatsapp-chat { width: 270px; right: 15px; bottom: 100px; }
-            .viewer-360 { height: 250px; }
-            .map-container { height: 220px; }
-            .floating-buttons { bottom: 15px; right: 15px; gap: 10px; }
-            .whatsapp-float, .call-float, .music-toggle { width: 48px; height: 48px; font-size: 1.2rem; }
-        }
-
-        @media (max-width: 480px) {
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .promo-bar { font-size: 0.75rem; padding: 6px 8px; }
-            .hero h1 { font-size: 2rem; }
-            .hero-logo { width: 110px; height: 110px; }
-            .navbar { top: 40px; border-radius: var(--radius-lg); }
-            .floating-buttons { bottom: 12px; right: 12px; gap: 8px; }
+            .whatsapp-chat { width: 250px; right: 14px; bottom: 105px; }
+            .viewer-360 { height: 220px; }
+            .map-container { height: 200px; }
+            .floating-buttons { bottom: 14px; right: 14px; gap: 8px; }
             .whatsapp-float, .call-float, .music-toggle { width: 44px; height: 44px; font-size: 1.1rem; }
         }
+        @media (max-width: 480px) {
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-logo { width: 95px; height: 95px; }
+            .navbar { top: 36px; }
+            .floating-buttons { bottom: 12px; right: 12px; gap: 7px; }
+            .whatsapp-float, .call-float, .music-toggle { width: 40px; height: 40px; font-size: 1rem; }
+            .promo-bar { font-size: 0.7rem; height: 30px; }
+            .navbar { top: 30px; }
+        }
 
-        ::-webkit-scrollbar{width:4px;} ::-webkit-scrollbar-track{background:var(--black);} ::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:10px;}
+        ::-webkit-scrollbar{width:4px;} ::-webkit-scrollbar-track{background:var(--black);} ::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:8px;}
     </style>
 </head>
 <body>
 
+    <!-- ✅ شريط العروض - z-index عادي -->
     <div class="promo-bar"><i class="fas fa-fire"></i> خصم <strong>١٥٪</strong> على المطابخ والمغاسل &nbsp;|&nbsp; كود: <span class="promo-code">MAKKAWI15</span></div>
+
     <canvas id="marble-canvas"></canvas>
     <div class="overlay-gradient"></div>
     <div class="gold-particles" id="goldParticles"></div>
     <div id="progress-bar"></div>
 
-    <!-- القائمة الجانبية -->
+    <!-- ✅ القائمة الجانبية - z-index أعلى من شريط العروض -->
     <div class="side-menu-overlay" id="sideMenuOverlay"></div>
     <div class="side-menu" id="sideMenu">
         <button class="side-menu-close" id="sideMenuClose">✕</button>
@@ -373,7 +359,6 @@
             <li><a href="#testimonials">الآراء</a></li>
             <li><a href="#quote" class="nav-cta">طلب عرض سعر</a></li>
         </ul>
-        <!-- ✅ زر القائمة واضح -->
         <button class="menu-toggle" id="menuToggle" aria-label="القائمة">☰</button>
     </nav>
 
@@ -396,22 +381,22 @@
     <!-- من نحن -->
     <section class="section" id="about" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">من نحن</span><h2 class="section-title">مكاوي للرخام والغرانيت</h2><div class="section-line"></div></div>
-        <div style="max-width:800px;margin:0 auto;text-align:center;" data-aos="fade-up" data-aos-delay="200">
-            <p style="font-size:1.1rem;line-height:2.1;margin-bottom:22px;">متخصصون في <strong style="color:var(--gold);">بيع كافة أنواع الرخام والغرانيت</strong> الطبيعي والمستورد. نقوم بتفصيل <strong style="color:var(--gold);">المغاسل والمطابخ</strong> حسب الطلب وبأدق المواصفات.</p>
+        <div style="max-width:750px;margin:0 auto;text-align:center;" data-aos="fade-up" data-aos-delay="200">
+            <p style="font-size:1.05rem;line-height:2;margin-bottom:18px;">متخصصون في <strong style="color:var(--gold);">بيع كافة أنواع الرخام والغرانيت</strong> الطبيعي والمستورد. نقوم بتفصيل <strong style="color:var(--gold);">المغاسل والمطابخ</strong> حسب الطلب.</p>
             <div class="warranty-badge"><i class="fas fa-shield-alt"></i> ضمان ١٠ سنوات على جميع الأعمال</div>
-            <p style="font-size:0.95rem;color:var(--text);opacity:0.8;">بإدارة <strong style="color:var(--gold-light);">الحاج أبو يوسف</strong></p>
+            <p style="font-size:0.9rem;color:var(--text);opacity:0.8;">بإدارة <strong style="color:var(--gold-light);">الحاج أبو يوسف</strong></p>
         </div>
     </section>
 
     <!-- المنتجات -->
     <section class="section" id="marble-types" data-aos="fade-up">
-        <div class="section-header"><span class="section-badge">منتجاتنا وخدماتنا</span><h2 class="section-title">تشكيلتنا المميزة</h2><p style="color:var(--text);opacity:0.8;">مجموعة متكاملة من المنتجات والخدمات الرخامية</p><div class="section-line"></div></div>
+        <div class="section-header"><span class="section-badge">منتجاتنا وخدماتنا</span><h2 class="section-title">تشكيلتنا المميزة</h2><div class="section-line"></div></div>
         <div class="marble-grid" id="marbleGrid"></div>
     </section>
 
     <!-- كلاتيه -->
     <section class="section" id="clatite" data-aos="fade-up">
-        <div class="section-header"><span class="section-badge">تشكيلة خاصة</span><h2 class="section-title">كلاتيه مفقش</h2><p style="color:var(--text);opacity:0.8;">تصميم فريد يجمع بين الأناقة والمتانة</p><div class="section-line"></div></div>
+        <div class="section-header"><span class="section-badge">تشكيلة خاصة</span><h2 class="section-title">كلاتيه مفقش</h2><div class="section-line"></div></div>
         <div class="clatite-grid" id="clatiteGrid"></div>
     </section>
 
@@ -419,7 +404,7 @@
     <section class="section" id="services" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">خدماتنا</span><h2 class="section-title">ماذا نقدم؟</h2><div class="section-line"></div></div>
         <div class="services-grid">
-            <div class="service-card" data-aos="zoom-in" data-aos-delay="100"><span class="service-icon">🪨</span><h4>بيع الرخام والغرانيت</h4><p>كافة أنواع الرخام الطبيعي والغرانيت بأفضل الأسعار</p></div>
+            <div class="service-card" data-aos="zoom-in" data-aos-delay="100"><span class="service-icon">🪨</span><h4>بيع الرخام والغرانيت</h4><p>كافة أنواع الرخام الطبيعي والغرانيت</p></div>
             <div class="service-card" data-aos="zoom-in" data-aos-delay="200"><span class="service-icon">🪚</span><h4>تفصيل المغاسل</h4><p>تصميم وتفصيل مغاسل رخامية حسب الطلب</p></div>
             <div class="service-card" data-aos="zoom-in" data-aos-delay="300"><span class="service-icon">🍳</span><h4>تفصيل المطابخ</h4><p>مطابخ رخامية فاخرة بأعلى معايير الجودة</p></div>
             <div class="service-card" data-aos="zoom-in" data-aos-delay="400"><span class="service-icon">✨</span><h4>تلميع وتصليح</h4><p>خدمة تلميع وإصلاح الرخام</p></div>
@@ -432,18 +417,18 @@
     <section class="section" id="process" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">خطوات العمل</span><h2 class="section-title">كيف نعمل؟</h2><div class="section-line"></div></div>
         <div class="timeline-steps">
-            <div class="step-item" data-aos="fade-up" data-aos-delay="100"><div class="step-circle">📞</div><h5>استشارة</h5><p>تواصل معنا</p></div>
-            <div class="step-item" data-aos="fade-up" data-aos-delay="200"><div class="step-circle">📐</div><h5>قياس</h5><p>نزور موقعك</p></div>
-            <div class="step-item" data-aos="fade-up" data-aos-delay="300"><div class="step-circle">🪚</div><h5>تفصيل</h5><p>نفصل بدقة</p></div>
-            <div class="step-item" data-aos="fade-up" data-aos-delay="400"><div class="step-circle">✨</div><h5>تلميع</h5><p>نلمع السطح</p></div>
-            <div class="step-item" data-aos="fade-up" data-aos-delay="500"><div class="step-circle">🚛</div><h5>تركيب</h5><p>نوصل ونركب</p></div>
+            <div class="step-item" data-aos="fade-up" data-aos-delay="100"><div class="step-circle">📞</div><h5>استشارة</h5></div>
+            <div class="step-item" data-aos="fade-up" data-aos-delay="200"><div class="step-circle">📐</div><h5>قياس</h5></div>
+            <div class="step-item" data-aos="fade-up" data-aos-delay="300"><div class="step-circle">🪚</div><h5>تفصيل</h5></div>
+            <div class="step-item" data-aos="fade-up" data-aos-delay="400"><div class="step-circle">✨</div><h5>تلميع</h5></div>
+            <div class="step-item" data-aos="fade-up" data-aos-delay="500"><div class="step-circle">🚛</div><h5>تركيب</h5></div>
         </div>
     </section>
 
     <!-- 360 -->
     <section class="section" id="gallery-360" data-aos="fade-up">
-        <div class="section-header"><span class="section-badge">معرض تفاعلي</span><h2 class="section-title">معرض 360 درجة</h2><p style="color:var(--text);opacity:0.8;">اسحب الصورة لليمين واليسار</p><div class="section-line"></div></div>
-        <div class="viewer-360" id="viewer360"><img src="https://i.imgur.com/GWMLo9q.png" alt="معرض 360" id="viewerImg" onerror="this.parentElement.innerHTML='<p style=color:var(--gold);padding:40px;text-align:center;>🔄 اسحب للاستكشاف</p>'"><div class="drag-hint">👆 اسحب يمين ويسار</div></div>
+        <div class="section-header"><span class="section-badge">معرض تفاعلي</span><h2 class="section-title">معرض 360 درجة</h2><div class="section-line"></div></div>
+        <div class="viewer-360" id="viewer360"><img src="https://i.imgur.com/GWMLo9q.png" alt="معرض 360" id="viewerImg" onerror="this.parentElement.innerHTML='<p style=color:var(--gold);padding:30px;text-align:center;>🔄 اسحب للاستكشاف</p>'"><div class="drag-hint">👆 اسحب يمين ويسار</div></div>
         <div class="viewer-controls"><button class="viewer-btn" onclick="rotateViewer(-30)"><i class="fas fa-arrow-right"></i></button><button class="viewer-btn" onclick="resetViewer()"><i class="fas fa-sync-alt"></i></button><button class="viewer-btn" onclick="rotateViewer(30)"><i class="fas fa-arrow-left"></i></button></div>
     </section>
 
@@ -451,7 +436,7 @@
     <section class="section" id="testimonials" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">آراء الزبائن</span><h2 class="section-title">ماذا يقول عملاؤنا؟</h2><div class="section-line"></div></div>
         <div class="testimonials-grid">
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"ركبوا لي مطبخ رخام، الشغل راقي والأسعار منافسة!"</p><p class="testimonial-author">أبو محمد</p><p class="testimonial-role">دمشق - المزة</p></div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"ركبوا لي مطبخ رخام، الشغل راقي والأسعار منافسة!"</p><p class="testimonial-author">أبو محمد</p><p class="testimonial-role">دمشق</p></div>
             <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"فصلت ٣ مغاسل عند الحاج أبو يوسف، شغل متقن."</p><p class="testimonial-author">أم أحمد</p><p class="testimonial-role">سلمية</p></div>
             <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300"><div class="testimonial-stars">⭐⭐⭐⭐⭐</div><p class="testimonial-text">"أفضل معمل رخام في سلمية، تعامل راقي."</p><p class="testimonial-author">أبو علي</p><p class="testimonial-role">حماة</p></div>
         </div>
@@ -459,14 +444,14 @@
 
     <!-- نموذج -->
     <section class="section" id="quote" data-aos="fade-up">
-        <div class="section-header"><span class="section-badge">طلب عرض سعر</span><h2 class="section-title">اطلب عرض سعر مجاني</h2><p style="color:var(--text);opacity:0.8;">املأ النموذج ونتواصل معك خلال ٢٤ ساعة</p><div class="section-line"></div></div>
+        <div class="section-header"><span class="section-badge">طلب عرض سعر</span><h2 class="section-title">اطلب عرض سعر مجاني</h2><div class="section-line"></div></div>
         <div class="quote-form" id="quoteForm">
-            <div class="form-group"><label>الاسم الكامل *</label><input type="text" id="qName" placeholder="أدخل اسمك الكامل" required></div>
-            <div class="form-group"><label>رقم الهاتف *</label><input type="tel" id="qPhone" placeholder="مثال: 0957598751" required></div>
-            <div class="form-group"><label>نوع الرخام</label><select id="qMarble"><option value="">-- اختر --</option><option>رخام</option><option>ديكور</option><option>غرانيت</option><option>شلالات</option><option>بحرات</option><option>تحف</option><option>كلاتيه</option><option>غير ذلك</option></select></div>
-            <div class="form-group"><label>نوع المشروع</label><select id="qProject"><option value="">-- اختر --</option><option>مطبخ</option><option>مغسلة</option><option>أرضية</option><option>شلال</option><option>بحرة</option><option>غير ذلك</option></select></div>
+            <div class="form-group"><label>الاسم *</label><input type="text" id="qName" placeholder="اسمك الكامل" required></div>
+            <div class="form-group"><label>الهاتف *</label><input type="tel" id="qPhone" placeholder="مثال: 0957598751" required></div>
+            <div class="form-group"><label>النوع</label><select id="qMarble"><option value="">-- اختر --</option><option>رخام</option><option>ديكور</option><option>غرانيت</option><option>شلالات</option><option>بحرات</option><option>تحف</option><option>كلاتيه</option></select></div>
+            <div class="form-group"><label>المشروع</label><select id="qProject"><option value="">-- اختر --</option><option>مطبخ</option><option>مغسلة</option><option>أرضية</option><option>شلال</option><option>بحرة</option></select></div>
             <div class="form-group"><label>المساحة (م²)</label><input type="number" id="qArea" placeholder="مثال: 10"></div>
-            <div class="form-group"><label>ملاحظات</label><textarea id="qNotes" placeholder="اكتب تفاصيل إضافية..."></textarea></div>
+            <div class="form-group"><label>ملاحظات</label><textarea id="qNotes" placeholder="تفاصيل إضافية..."></textarea></div>
             <button class="form-submit" onclick="submitQuote()"><i class="fas fa-paper-plane"></i> أرسل الطلب</button>
             <div class="form-success" id="formSuccess">✅ تم الإرسال! سنتواصل معك قريباً.</div>
         </div>
@@ -474,42 +459,42 @@
 
     <!-- خريطة -->
     <section class="section" id="map-section" data-aos="fade-up">
-        <div class="section-header"><span class="section-badge">موقعنا</span><h2 class="section-title">موقع المعمل</h2><p style="color:var(--text);opacity:0.8;">دمشق - سلمية - مقابل شركة عوامة</p><div class="section-line"></div></div>
+        <div class="section-header"><span class="section-badge">موقعنا</span><h2 class="section-title">موقع المعمل</h2><p style="color:var(--text);opacity:0.7;font-size:0.9rem;">دمشق - سلمية - مقابل شركة عوامة</p><div class="section-line"></div></div>
         <div class="map-container"><iframe src="https://www.google.com/maps?q=سلمية+دمشق+سوريا&output=embed" allowfullscreen="" loading="lazy"></iframe></div>
     </section>
 
     <!-- تواصل -->
     <section class="section" id="contact" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">تواصل معنا</span><h2 class="section-title">نسعد بخدمتكم</h2><div class="section-line"></div></div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;max-width:900px;margin:0 auto;">
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-map-marker-alt" style="font-size:2.2rem;color:var(--gold);display:block;margin-bottom:12px;"></i><h4 style="color:var(--gold);">العنوان</h4><p>دمشق - سلمية<br>مقابل شركة عوامة</p></div>
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-phone" style="font-size:2.2rem;color:var(--gold);display:block;margin-bottom:12px;"></i><h4 style="color:var(--gold);">الهاتف</h4><a href="tel:8839784" style="color:var(--text);font-size:1.1rem;">8839784</a></div>
-            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-mobile-alt" style="font-size:2.2rem;color:var(--gold);display:block;margin-bottom:12px;"></i><h4 style="color:var(--gold);">جوال</h4><a href="tel:+963932851468" style="color:var(--text);">+963 932 851 468</a><br><a href="tel:+963943713677" style="color:var(--text);">+963 943 713 677</a></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;max-width:800px;margin:0 auto;">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-map-marker-alt" style="font-size:2rem;color:var(--gold);display:block;margin-bottom:10px;"></i><h4 style="color:var(--gold);">العنوان</h4><p style="font-size:0.9rem;">دمشق - سلمية<br>مقابل شركة عوامة</p></div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-phone" style="font-size:2rem;color:var(--gold);display:block;margin-bottom:10px;"></i><h4 style="color:var(--gold);">الهاتف</h4><a href="tel:8839784" style="color:var(--text);font-size:1rem;">8839784</a></div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-mobile-alt" style="font-size:2rem;color:var(--gold);display:block;margin-bottom:10px;"></i><h4 style="color:var(--gold);">جوال</h4><a href="tel:+963932851468" style="color:var(--text);font-size:0.9rem;">+963 932 851 468</a><br><a href="tel:+963943713677" style="color:var(--text);font-size:0.9rem;">+963 943 713 677</a></div>
         </div>
     </section>
 
     <footer class="footer">
         <img src="https://i.imgur.com/hQq5gDs.png" alt="مكاوي للرخام" class="footer-logo" onerror="this.src='https://imgur.com/hQq5gDs'">
-        <h3>مكاوي للرخام والغرانيت</h3><p>الحاج أبو يوسف</p>
-        <p style="opacity:0.7;margin-bottom:12px;">دمشق - سلمية - مقابل شركة عوامة</p>
-        <p style="opacity:0.6;font-size:0.85rem;">© 2026 جميع الحقوق محفوظة</p>
+        <h3>مكاوي للرخام والغرانيت</h3><p style="font-size:0.85rem;">الحاج أبو يوسف</p>
+        <p style="opacity:0.7;margin-bottom:10px;font-size:0.8rem;">دمشق - سلمية - مقابل شركة عوامة</p>
+        <p style="opacity:0.6;font-size:0.75rem;">© 2026 جميع الحقوق محفوظة</p>
     </footer>
 
-    <!-- ✅ أزرار عائمة منفصلة -->
+    <!-- أزرار عائمة -->
     <div class="floating-buttons">
         <button class="whatsapp-float" id="whatsappFloat" title="واتساب"><i class="fab fa-whatsapp"></i></button>
         <a href="tel:+963932851468" class="call-float" title="اتصل"><i class="fas fa-phone"></i></a>
         <button class="music-toggle" id="musicToggle" title="موسيقى"><i class="fas fa-music"></i></button>
     </div>
 
-    <!-- دردشة واتساب -->
+    <!-- دردشة -->
     <div class="whatsapp-chat" id="whatsappChat">
-        <div class="whatsapp-chat-header"><i class="fab fa-whatsapp"></i> تواصل معنا واتساب</div>
+        <div class="whatsapp-chat-header"><i class="fab fa-whatsapp"></i> واتساب</div>
         <div class="whatsapp-chat-body">
             <div class="msg">👋 السلام عليكم!</div>
-            <button class="quick-reply" onclick="sendWhatsApp('استفسار عن الرخام')">🪨 استفسار عن الرخام</button>
-            <button class="quick-reply" onclick="sendWhatsApp('طلب عرض سعر')">💰 طلب عرض سعر</button>
-            <button class="quick-reply" onclick="sendWhatsApp('موقع المعمل')">📍 موقع المعمل</button>
+            <button class="quick-reply" onclick="sendWhatsApp('استفسار عن الرخام')">🪨 استفسار</button>
+            <button class="quick-reply" onclick="sendWhatsApp('طلب عرض سعر')">💰 عرض سعر</button>
+            <button class="quick-reply" onclick="sendWhatsApp('موقع المعمل')">📍 الموقع</button>
         </div>
     </div>
 
@@ -523,11 +508,11 @@
         // خلفية
         const canvas=document.getElementById('marble-canvas'),ctx=canvas.getContext('2d');let w,h;
         function rc(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}rc();window.addEventListener('resize',rc);
-        const blocks=[];for(let i=0;i<20;i++)blocks.push({x:Math.random()*w,y:Math.random()*h,z:Math.random()*400+100,size:Math.random()*80+30,speed:Math.random()*0.5+0.2,color:`hsl(${35+Math.random()*15},${40+Math.random()*30}%,${20+Math.random()*25}%)`,border:`rgba(200,150,62,${Math.random()*0.4+0.1})`,rotation:Math.random()*Math.PI*2,rotSpeed:(Math.random()-0.5)*0.01});
-        function draw(){ctx.clearRect(0,0,w,h);blocks.forEach(b=>{b.y+=b.speed;b.rotation+=b.rotSpeed;if(b.y>h+b.size){b.y=-b.size;b.x=Math.random()*w;}const s=200/(b.z+200),x=b.x-(b.x-w/2)*(1-s),y=b.y-(b.y-h/2)*(1-s),sz=b.size*s;ctx.save();ctx.translate(x,y);ctx.rotate(b.rotation);ctx.fillStyle='rgba(0,0,0,0.4)';ctx.fillRect(-sz/2+4,-sz/2+4,sz,sz);const g=ctx.createLinearGradient(-sz/2,-sz/2,sz/2,sz/2);g.addColorStop(0,b.color);g.addColorStop(0.5,b.border);g.addColorStop(1,b.color);ctx.fillStyle=g;ctx.fillRect(-sz/2,-sz/2,sz,sz);ctx.strokeStyle='rgba(255,255,255,0.06)';ctx.lineWidth=1;for(let j=0;j<3;j++){ctx.beginPath();ctx.moveTo(-sz/2+Math.random()*sz,-sz/2);ctx.quadraticCurveTo(-sz/2+Math.random()*sz,Math.random()*sz-sz/2,-sz/2+Math.random()*sz,sz/2);ctx.stroke();}ctx.restore();});requestAnimationFrame(draw);}draw();
+        const blocks=[];for(let i=0;i<18;i++)blocks.push({x:Math.random()*w,y:Math.random()*h,z:Math.random()*400+100,size:Math.random()*80+30,speed:Math.random()*0.5+0.2,color:`hsl(${35+Math.random()*15},${40+Math.random()*30}%,${20+Math.random()*25}%)`,border:`rgba(200,150,62,${Math.random()*0.4+0.1})`,rotation:Math.random()*Math.PI*2,rotSpeed:(Math.random()-0.5)*0.01});
+        function draw(){ctx.clearRect(0,0,w,h);blocks.forEach(b=>{b.y+=b.speed;b.rotation+=b.rotSpeed;if(b.y>h+b.size){b.y=-b.size;b.x=Math.random()*w;}const s=200/(b.z+200),x=b.x-(b.x-w/2)*(1-s),y=b.y-(b.y-h/2)*(1-s),sz=b.size*s;ctx.save();ctx.translate(x,y);ctx.rotate(b.rotation);ctx.fillStyle='rgba(0,0,0,0.4)';ctx.fillRect(-sz/2+4,-sz/2+4,sz,sz);const g=ctx.createLinearGradient(-sz/2,-sz/2,sz/2,sz/2);g.addColorStop(0,b.color);g.addColorStop(0.5,b.border);g.addColorStop(1,b.color);ctx.fillStyle=g;ctx.fillRect(-sz/2,-sz/2,sz,sz);ctx.strokeStyle='rgba(255,255,255,0.05)';ctx.lineWidth=1;for(let j=0;j<2;j++){ctx.beginPath();ctx.moveTo(-sz/2+Math.random()*sz,-sz/2);ctx.quadraticCurveTo(-sz/2+Math.random()*sz,Math.random()*sz-sz/2,-sz/2+Math.random()*sz,sz/2);ctx.stroke();}ctx.restore();});requestAnimationFrame(draw);}draw();
 
         // جزيئات
-        const pc=document.getElementById('goldParticles');for(let i=0;i<30;i++){const p=document.createElement('div');p.classList.add('gold-particle');p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.width=Math.random()*5+2+'px';p.style.height=p.style.width;p.style.animationDelay=Math.random()*5+'s';p.style.animationDuration=Math.random()*4+3+'s';pc.appendChild(p);}
+        const pc=document.getElementById('goldParticles');for(let i=0;i<25;i++){const p=document.createElement('div');p.classList.add('gold-particle');p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.width=Math.random()*4+2+'px';p.style.height=p.style.width;p.style.animationDelay=Math.random()*5+'s';p.style.animationDuration=Math.random()*4+3+'s';pc.appendChild(p);}
 
         // كتابة
         const phrases=['تفصيل المطابخ الرخامية','أجود أنواع الغرانيت','المغاسل الفاخرة','شلالات الحدائق','بحرات دمشقية'];
@@ -542,13 +527,13 @@
         const marbleTypes=[{name:'رخام',desc:'تشكيلة واسعة من الرخام الطبيعي والمستورد بأجود الأنواع',img:'https://i.imgur.com/F3kxu5f.png',badge:'🪨 رخام',bestseller:false},{name:'ديكور',desc:'تصميم وتنفيذ ديكورات الرخام بأحدث الأساليب العصرية',img:'https://i.imgur.com/Fxddfu9.png',badge:'🎨 ديكور',bestseller:true},{name:'غرانيت',desc:'تشكيلة واسعة من الغرانيت الفاخر يتحمل الحرارة والرطوبة',img:'https://i.imgur.com/bW7GXu7.png',badge:'💎 غرانيت',bestseller:false},{name:'شلالات الحدائق',desc:'تغطية شلالات الحدائق والمزارع بأجود أنواع الرخام',img:'https://i.imgur.com/HpAytKF.png',badge:'🌊 شلالات',bestseller:false},{name:'بحرات',desc:'تنفيذ بحرات دمشقية منزلية بتصاميم تقليدية أصيلة',img:'https://i.imgur.com/GWMLo9q.png',badge:'🏊 بحرات',bestseller:false},{name:'شلالات مودرن',desc:'تنفيذ شلالات للفلل والمنازل بتصاميم عصرية حديثة',img:'https://i.imgur.com/93IwF0k.png',badge:'✨ مودرن',bestseller:true},{name:'تحف شرقية',desc:'تحف شرقية وعالمية للمنازل من الرخام الفاخر',img:'https://i.imgur.com/7p79uZB.png',badge:'🏺 تحف',bestseller:false},{name:'ديكورات شلالات',desc:'شلالات للمنازل بتصاميم ديكورية مميزة',img:'https://i.imgur.com/kzswUtF.png',badge:'🏡 ديكورات',bestseller:false},{name:'فريق العمل',desc:'عمالنا يتميزون بالخبرة الطويلة في مجال الرخام',img:'https://i.imgur.com/dmtmznI.png',badge:'👷 فريقنا',bestseller:false},{name:'فاخر',desc:'ديكور فاخر يصلح لجميع الأذواق بأعلى معايير الجودة',img:'https://i.imgur.com/8GQpGT9.png',badge:'👑 فاخر',bestseller:true}];
         const clatiteImages=['https://i.imgur.com/1R5JJ3K.png','https://i.imgur.com/vg68IX6.png','https://i.imgur.com/pMKseB4.png','https://i.imgur.com/zKNu7O8.png','https://i.imgur.com/YpTyot5.png','https://i.imgur.com/8dvb7NA.png','https://i.imgur.com/80oEBW5.png','https://i.imgur.com/wZIabZ8.png','https://i.imgur.com/8yY9Uai.png'];
 
-        function bmg(){const g=document.getElementById('marbleGrid');marbleTypes.forEach((m,i)=>{const c=document.createElement('div');c.classList.add('marble-card');if(m.bestseller)c.classList.add('bestseller');c.setAttribute('data-aos','fade-up');c.setAttribute('data-aos-delay',i*50);c.innerHTML=`<span class="marble-card-badge">${m.badge}</span><img src="${m.img}" alt="${m.name}" class="marble-card-img" onerror="this.style.background='var(--brown-dark)';this.style.minHeight='220px';"><div class="marble-card-body"><h4>${m.name}</h4><p>${m.desc}</p></div><div class="share-btns"><button class="share-btn" onclick="event.stopPropagation();shareOnWhatsApp('${m.name}')"><i class="fab fa-whatsapp"></i></button><button class="share-btn" onclick="event.stopPropagation();copyLink('${m.name}')"><i class="fas fa-link"></i></button></div>`;c.addEventListener('click',()=>omm(m));g.appendChild(c);});}
-        function bcg(){const g=document.getElementById('clatiteGrid');clatiteImages.forEach((img,i)=>{const c=document.createElement('div');c.classList.add('clatite-card');c.setAttribute('data-aos','zoom-in');c.setAttribute('data-aos-delay',i*60);c.innerHTML=`<img src="${img}" alt="كلاتيه ${i+1}" onerror="this.style.background='var(--brown-dark)';this.style.minHeight='200px';"><div class="clatite-card-body"><span>✨ كلاتيه مفقش - ${i+1}</span></div>`;c.addEventListener('click',()=>oim(img,`كلاتيه مفقش - تصميم ${i+1}`));g.appendChild(c);});}
+        function bmg(){const g=document.getElementById('marbleGrid');marbleTypes.forEach((m,i)=>{const c=document.createElement('div');c.classList.add('marble-card');if(m.bestseller)c.classList.add('bestseller');c.setAttribute('data-aos','fade-up');c.setAttribute('data-aos-delay',i*50);c.innerHTML=`<span class="marble-card-badge">${m.badge}</span><img src="${m.img}" alt="${m.name}" class="marble-card-img" onerror="this.style.background='var(--brown-dark)';this.style.minHeight='200px';"><div class="marble-card-body"><h4>${m.name}</h4><p>${m.desc}</p></div><div class="share-btns"><button class="share-btn" onclick="event.stopPropagation();shareOnWhatsApp('${m.name}')"><i class="fab fa-whatsapp"></i></button><button class="share-btn" onclick="event.stopPropagation();copyLink('${m.name}')"><i class="fas fa-link"></i></button></div>`;c.addEventListener('click',()=>omm(m));g.appendChild(c);});}
+        function bcg(){const g=document.getElementById('clatiteGrid');clatiteImages.forEach((img,i)=>{const c=document.createElement('div');c.classList.add('clatite-card');c.setAttribute('data-aos','zoom-in');c.setAttribute('data-aos-delay',i*60);c.innerHTML=`<img src="${img}" alt="كلاتيه ${i+1}" onerror="this.style.background='var(--brown-dark)';this.style.minHeight='180px';"><div class="clatite-card-body"><span>✨ كلاتيه مفقش - ${i+1}</span></div>`;c.addEventListener('click',()=>oim(img,`كلاتيه مفقش - تصميم ${i+1}`));g.appendChild(c);});}
         bmg();bcg();AOS.refresh();
 
         const mo=document.getElementById('modalOverlay'),mb=document.getElementById('modalBody');
-        function omm(m){mb.innerHTML=`<img src="${m.img}" alt="${m.name}" style="width:100%;border-radius:1rem;margin-bottom:18px;" onerror="this.style.display='none';"><span style="background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--black);padding:5px 16px;border-radius:50px;font-weight:700;">${m.badge}</span><h3 style="margin-top:10px;">${m.name}</h3><p style="margin-top:10px;color:var(--text);line-height:2;">${m.desc}</p><p style="margin-top:12px;color:var(--gold-light);">للاستفسار: <a href="tel:+963932851468" style="color:var(--gold);">+963 932 851 468</a></p>`;mo.classList.add('show');document.body.style.overflow='hidden';}
-        function oim(img,t){mb.innerHTML=`<img src="${img}" alt="${t}" style="width:100%;border-radius:1rem;margin-bottom:18px;" onerror="this.style.display='none';"><h3>${t}</h3><p style="margin-top:10px;color:var(--gold-light);">للطلب: <a href="tel:+963932851468" style="color:var(--gold);">+963 932 851 468</a></p>`;mo.classList.add('show');document.body.style.overflow='hidden';}
+        function omm(m){mb.innerHTML=`<img src="${m.img}" alt="${m.name}" style="width:100%;border-radius:1rem;margin-bottom:15px;" onerror="this.style.display='none';"><span style="background:linear-gradient(135deg,var(--gold-dark),var(--gold));color:var(--black);padding:4px 14px;border-radius:50px;font-weight:700;font-size:0.75rem;">${m.badge}</span><h3 style="margin-top:8px;">${m.name}</h3><p style="margin-top:8px;color:var(--text);line-height:1.9;">${m.desc}</p><p style="margin-top:10px;color:var(--gold-light);font-size:0.9rem;">للاستفسار: <a href="tel:+963932851468" style="color:var(--gold);">+963 932 851 468</a></p>`;mo.classList.add('show');document.body.style.overflow='hidden';}
+        function oim(img,t){mb.innerHTML=`<img src="${img}" alt="${t}" style="width:100%;border-radius:1rem;margin-bottom:15px;" onerror="this.style.display='none';"><h3>${t}</h3><p style="margin-top:8px;color:var(--gold-light);font-size:0.9rem;">للطلب: <a href="tel:+963932851468" style="color:var(--gold);">+963 932 851 468</a></p>`;mo.classList.add('show');document.body.style.overflow='hidden';}
         document.getElementById('modalClose').addEventListener('click',()=>{mo.classList.remove('show');document.body.style.overflow='';});
         mo.addEventListener('click',e=>{if(e.target===mo){mo.classList.remove('show');document.body.style.overflow='';}});
         document.addEventListener('keydown',e=>{if(e.key==='Escape'){mo.classList.remove('show');document.body.style.overflow='';}});
@@ -559,12 +544,12 @@
         // 360
         let vr=0;const vi=document.getElementById('viewerImg');let id=false,sx=0;const v3=document.getElementById('viewer360');
         v3.addEventListener('mousedown',e=>{id=true;sx=e.clientX;e.preventDefault();});
-        v3.addEventListener('mousemove',e=>{if(!id)return;vr+=(e.clientX-sx)*0.5;vi.style.transform=`rotateY(${vr}deg) scale(1.5)`;sx=e.clientX;});
+        v3.addEventListener('mousemove',e=>{if(!id)return;vr+=(e.clientX-sx)*0.5;vi.style.transform=`rotateY(${vr}deg) scale(1.4)`;sx=e.clientX;});
         v3.addEventListener('mouseup',()=>id=false);v3.addEventListener('mouseleave',()=>id=false);
         v3.addEventListener('touchstart',e=>{id=true;sx=e.touches[0].clientX;});
-        v3.addEventListener('touchmove',e=>{if(!id)return;vr+=(e.touches[0].clientX-sx)*0.5;vi.style.transform=`rotateY(${vr}deg) scale(1.5)`;sx=e.touches[0].clientX;});
+        v3.addEventListener('touchmove',e=>{if(!id)return;vr+=(e.touches[0].clientX-sx)*0.5;vi.style.transform=`rotateY(${vr}deg) scale(1.4)`;sx=e.touches[0].clientX;});
         v3.addEventListener('touchend',()=>id=false);
-        function rotateViewer(d){vr+=d;vi.style.transform=`rotateY(${vr}deg) scale(1.5)`;}
+        function rotateViewer(d){vr+=d;vi.style.transform=`rotateY(${vr}deg) scale(1.4)`;}
         function resetViewer(){vr=0;vi.style.transform='rotateY(0deg) scale(1)';}
 
         // واتساب
@@ -584,16 +569,15 @@
         const bgm=document.getElementById('bgMusic'),mt=document.getElementById('musicToggle');let ip=false;
         mt.addEventListener('click',()=>{if(ip){bgm.pause();mt.classList.remove('playing');mt.innerHTML='<i class="fas fa-music"></i>';ip=false;}else{bgm.play().catch(()=>{});mt.classList.add('playing');mt.innerHTML='<i class="fas fa-volume-up"></i>';ip=true;}});
 
-        // ✅ قائمة جانبية محسنة
+        // ✅ قائمة جانبية - z-index أعلى من كل شيء
         const sm=document.getElementById('sideMenu'),smo=document.getElementById('sideMenuOverlay');
         document.getElementById('menuToggle').addEventListener('click',()=>{sm.classList.add('open');smo.classList.add('show');document.body.style.overflow='hidden';});
         document.getElementById('sideMenuClose').addEventListener('click',()=>{sm.classList.remove('open');smo.classList.remove('show');document.body.style.overflow='';});
         smo.addEventListener('click',()=>{sm.classList.remove('open');smo.classList.remove('show');document.body.style.overflow='';});
         document.querySelectorAll('[data-close]').forEach(l=>l.addEventListener('click',()=>{sm.classList.remove('open');smo.classList.remove('show');document.body.style.overflow='';}));
-        document.addEventListener('keydown',e=>{if(e.key==='Escape'){sm.classList.remove('open');smo.classList.remove('show');document.body.style.overflow='';}});
 
         window.addEventListener('scroll',()=>{const ws=document.body.scrollTop||document.documentElement.scrollTop;const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('progress-bar').style.width=(ws/h)*100+'%';document.getElementById('navbar').classList.toggle('scrolled',ws>50);});
-        document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-90,behavior:'smooth'});}));
+        document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-85,behavior:'smooth'});}));
     </script>
 </body>
-</html>
+</html>ر
