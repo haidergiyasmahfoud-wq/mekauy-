@@ -79,7 +79,8 @@
             transition: var(--transition); box-shadow: var(--shadow-dark);
         }
         .navbar.scrolled { background: rgba(10,10,10,0.95); border-color: rgba(200,150,62,0.4); top: 0; border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
-        .nav-logo-img { height: 42px; width: 42px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(200,150,62,0.4); transition: var(--transition); flex-shrink: 0; }
+        /* ✅ تم إزالة border-radius: 50% */
+        .nav-logo-img { height: 42px; width: 42px; object-fit: contain; background: transparent; border: none; box-shadow: none; transition: var(--transition); flex-shrink: 0; }
         .navbar.scrolled .nav-logo-img { height: 36px; width: 36px; }
         .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
         .nav-brand-text { font-family: 'El Messiri', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--gold); white-space: nowrap; }
@@ -124,7 +125,8 @@
             z-index: 10002; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
         }
         .side-menu-overlay.show { opacity: 1; pointer-events: auto; }
-        .side-menu-logo { display: block; margin: 0 auto 18px; height: 75px; width: 75px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); border: 2px solid var(--gold); box-shadow: 0 0 30px rgba(200,150,62,0.3); }
+        /* ✅ تم إزالة border-radius: 50% */
+        .side-menu-logo { display: block; margin: 0 auto 18px; height: 75px; width: 75px; object-fit: contain; background: transparent; border: none; box-shadow: none; }
         .side-menu-links { list-style: none; display: flex; flex-direction: column; gap: 4px; }
         .side-menu-links a { text-decoration: none; color: var(--text); font-weight: 600; padding: 12px 16px; border-radius: var(--radius-md); display: block; transition: var(--transition); border: 1px solid transparent; font-size: 0.9rem; }
         .side-menu-links a:hover { background: rgba(200,150,62,0.15); color: var(--gold); border-color: rgba(200,150,62,0.3); transform: translateX(-5px); }
@@ -134,9 +136,11 @@
         /* ============ القسم الرئيسي ============ */
         .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding: 140px 18px 50px; }
         .hero-container { position: relative; z-index: 1; max-width: 800px; }
-        .hero-logo-frame { display: inline-block; background: rgba(62,39,35,0.4); backdrop-filter: var(--blur); border-radius: 50%; padding: 16px; margin-bottom: 22px; border: 3px solid var(--gold); box-shadow: 0 0 60px rgba(200,150,62,0.3),0 20px 40px rgba(0,0,0,0.4); animation: floatLogo 6s ease-in-out infinite; }
-        @keyframes floatLogo { 0%,100%{transform:translateY(0)scale(1);box-shadow:0 0 60px rgba(200,150,62,0.3);} 50%{transform:translateY(-12px)scale(1.03);box-shadow:0 0 90px rgba(200,150,62,0.5);} }
-        .hero-logo { width: 140px; height: 140px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); display: block; }
+        /* ✅ تم إزالة border-radius: 50% من الإطار */
+        .hero-logo-frame { display: inline-block; background: transparent; backdrop-filter: none; border-radius: 0; padding: 0; margin-bottom: 22px; border: none; box-shadow: none; animation: floatLogo 6s ease-in-out infinite; }
+        @keyframes floatLogo { 0%,100%{transform:translateY(0)scale(1);} 50%{transform:translateY(-12px)scale(1.03);} }
+        /* ✅ تم إزالة border-radius: 50% */
+        .hero-logo { width: 160px; height: auto; border-radius: 0; object-fit: contain; background: transparent; display: block; }
         .hero-badge { display: inline-block; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); padding: 7px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 16px; letter-spacing: 1.5px; box-shadow: var(--shadow-gold); }
         .hero h1 { font-family: 'El Messiri', sans-serif; font-size: clamp(2rem, 5.5vw, 4rem); font-weight: 700; line-height: 1.2; margin-bottom: 10px; background: linear-gradient(180deg, var(--white) 30%, var(--gold-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .typing-container { font-size: 1rem; color: var(--text); opacity: 0.85; margin-bottom: 25px; min-height: 30px; display: flex; align-items: center; justify-content: center; gap: 4px; }
@@ -269,7 +273,8 @@
         .modal-close:hover { background: #c0392b; color: #fff; transform: rotate(90deg); }
 
         .footer { background: var(--brown-dark); border-top: 1px solid rgba(200,150,62,0.2); text-align: center; padding: 35px 18px 25px; color: var(--text); }
-        .footer-logo { height: 70px; width: 70px; border-radius: 50%; object-fit: contain; background: var(--brown-dark); border: 2px solid var(--gold); margin-bottom: 15px; }
+        /* ✅ تم إزالة border-radius: 50% */
+        .footer-logo { height: 70px; width: auto; border-radius: 0; object-fit: contain; background: transparent; border: none; margin-bottom: 15px; }
         .footer h3 { font-family: 'El Messiri', sans-serif; color: var(--gold); margin-bottom: 5px; font-size: 1.1rem; }
         .footer a { color: var(--gold-light); text-decoration: none; }
 
@@ -283,8 +288,8 @@
             .navbar { width: 96%; padding: 8px 14px; top: 36px; border-radius: 0 0 var(--radius-md) var(--radius-md); }
             .navbar.scrolled { top: 0; border-radius: 0 0 var(--radius-md) var(--radius-md); }
             .nav-logo-img { height: 36px; width: 36px; }
-            .hero-logo { width: 110px; height: 110px; }
-            .hero-logo-frame { padding: 12px; }
+            .hero-logo { width: 130px; }
+            .hero-logo-frame { padding: 0; }
             .hero { padding-top: 130px; }
             .section { padding: 40px 14px; }
             .marble-grid { grid-template-columns: 1fr; }
@@ -303,7 +308,7 @@
         @media (max-width: 480px) {
             .hero-buttons { flex-direction: column; align-items: center; }
             .hero h1 { font-size: 1.8rem; }
-            .hero-logo { width: 95px; height: 95px; }
+            .hero-logo { width: 110px; }
             .navbar { top: 36px; }
             .floating-buttons { bottom: 12px; right: 12px; gap: 7px; }
             .whatsapp-float, .call-float, .music-toggle { width: 40px; height: 40px; font-size: 1rem; }
@@ -328,7 +333,8 @@
     <div class="side-menu-overlay" id="sideMenuOverlay"></div>
     <div class="side-menu" id="sideMenu">
         <button class="side-menu-close" id="sideMenuClose">✕</button>
-        <img src="https://i.imgur.com/hQq5gDs.png" alt="مكاوي للرخام" class="side-menu-logo" onerror="this.src='https://imgur.com/hQq5gDs'">
+        <!-- ✅ لوجو بدون دائرة -->
+        <img src="https://i.imgur.com/AhqkSdY.png" alt="مكاوي للرخام" class="side-menu-logo" onerror="this.src='https://i.imgur.com/hQq5gDs.png'">
         <ul class="side-menu-links">
             <li><a href="#home" data-close>🏠 الرئيسية</a></li>
             <li><a href="#about" data-close>ℹ️ من نحن</a></li>
@@ -347,7 +353,8 @@
     <!-- شريط التنقل -->
     <nav class="navbar" id="navbar">
         <a href="#home" class="nav-brand">
-            <img src="https://i.imgur.com/hQq5gDs.png" alt="مكاوي للرخام" class="nav-logo-img" onerror="this.src='https://imgur.com/hQq5gDs'">
+            <!-- ✅ لوجو بدون دائرة -->
+            <img src="https://i.imgur.com/AhqkSdY.png" alt="مكاوي للرخام" class="nav-logo-img" onerror="this.src='https://i.imgur.com/hQq5gDs.png'">
             <span class="nav-brand-text">مكاوي للرخام</span>
         </a>
         <ul class="nav-links">
@@ -365,7 +372,10 @@
     <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-container">
-            <div class="hero-logo-frame"><img src="https://i.imgur.com/hQq5gDs.png" alt="مكاوي للرخام" class="hero-logo" onerror="this.src='https://imgur.com/hQq5gDs'"></div>
+            <div class="hero-logo-frame">
+                <!-- ✅ لوجو بدون دائرة -->
+                <img src="https://i.imgur.com/AhqkSdY.png" alt="مكاوي للرخام" class="hero-logo" onerror="this.src='https://i.imgur.com/hQq5gDs.png'">
+            </div>
             <div class="hero-badge">منذ 20 عاماً من الخبرة</div>
             <h1>مكاوي للرخام والغرانيت</h1>
             <div class="typing-container"><span>نتميز في</span>&nbsp;<span class="typing-text" id="typingText"></span><span class="typing-cursor"></span></div>
@@ -460,7 +470,8 @@
     <!-- خريطة -->
     <section class="section" id="map-section" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">موقعنا</span><h2 class="section-title">موقع المعمل</h2><p style="color:var(--text);opacity:0.7;font-size:0.9rem;">دمشق - سلمية - مقابل شركة عوامة</p><div class="section-line"></div></div>
-        <div class="map-container"><iframe src="https://www.google.com/maps?q=سلمية+دمشق+سوريا&output=embed" allowfullscreen="" loading="lazy"></iframe></div>
+        <!-- ✅ رابط الخريطة المحدث -->
+        <div class="map-container"><iframe src="https://maps.google.com/maps?q=H8HR%2B5WR%D8%8C%2B%D8%B6%D8%A7%D8%AD%D9%8A%D8%A9%2B%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D8%8C%2B%D8%B3%D9%88%D8%B1%D9%8A%D8%A7&sll=33.5773147428739,36.34236373007297&output=embed" allowfullscreen="" loading="lazy"></iframe></div>
     </section>
 
     <!-- تواصل -->
@@ -474,7 +485,8 @@
     </section>
 
     <footer class="footer">
-        <img src="https://i.imgur.com/hQq5gDs.png" alt="مكاوي للرخام" class="footer-logo" onerror="this.src='https://imgur.com/hQq5gDs'">
+        <!-- ✅ لوجو بدون دائرة -->
+        <img src="https://i.imgur.com/AhqkSdY.png" alt="مكاوي للرخام" class="footer-logo" onerror="this.src='https://i.imgur.com/hQq5gDs.png'">
         <h3>مكاوي للرخام والغرانيت</h3><p style="font-size:0.85rem;">الحاج أبو يوسف</p>
         <p style="opacity:0.7;margin-bottom:10px;font-size:0.8rem;">دمشق - سليمة - مقابل شركة عوامة</p>
         <p style="opacity:0.6;font-size:0.75rem;">© 2026 جميع الحقوق محفوظة</p>
@@ -580,4 +592,4 @@
         document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)window.scrollTo({top:t.offsetTop-85,behavior:'smooth'});}));
     </script>
 </body>
-</html>ر
+</html>
