@@ -44,7 +44,7 @@
             padding-bottom: 90px;
         }
 
-        /* ============ شريط العروض - أقل حجماً ============ */
+        /* ============ شريط العروض ============ */
         .promo-bar {
             position: fixed; top: 0; left: 0; width: 100%;
             background: linear-gradient(90deg, var(--brown-dark), var(--gold-dark), var(--brown-dark));
@@ -68,7 +68,7 @@
         .gold-particle { position: absolute; background: var(--gold); border-radius: 50%; opacity: 0; animation: sparkle 4s infinite ease-in-out; box-shadow: 0 0 10px var(--gold-light), 0 0 30px var(--gold); }
         @keyframes sparkle { 0%,100%{opacity:0;transform:translateY(0)scale(0);} 20%{opacity:0.8;transform:translateY(-30px)scale(1);} 40%{opacity:0.3;transform:translateY(-60px)scale(0.5);} 60%{opacity:0.9;transform:translateY(-90px)scale(1.2);} 80%{opacity:0.1;transform:translateY(-120px)scale(0.3);} }
 
-        /* ============ شريط التنقل - تحت شريط العروض ============ */
+        /* ============ شريط التنقل ============ */
         .navbar {
             position: fixed; top: 36px; left: 50%; transform: translateX(-50%);
             width: 94%; max-width: 1300px;
@@ -79,7 +79,6 @@
             transition: var(--transition); box-shadow: var(--shadow-dark);
         }
         .navbar.scrolled { background: rgba(10,10,10,0.95); border-color: rgba(200,150,62,0.4); top: 0; border-radius: 0 0 var(--radius-xl) var(--radius-xl); }
-        /* ✅ تم إزالة border-radius: 50% */
         .nav-logo-img { height: 42px; width: 42px; object-fit: contain; background: transparent; border: none; box-shadow: none; transition: var(--transition); flex-shrink: 0; }
         .navbar.scrolled .nav-logo-img { height: 36px; width: 36px; }
         .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -92,7 +91,6 @@
         .nav-cta { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black) !important; font-weight: 700 !important; padding: 9px 20px !important; box-shadow: var(--shadow-gold); }
         .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 15px 45px rgba(200,150,62,0.5) !important; }
 
-        /* ✅ زر القائمة للموبايل */
         .menu-toggle {
             display: none;
             background: rgba(200,150,62,0.2);
@@ -109,7 +107,7 @@
         }
         .menu-toggle:hover { background: var(--gold); color: var(--black); }
 
-        /* ============ القائمة الجانبية - z-index أعلى ============ */
+        /* ============ القائمة الجانبية ============ */
         .side-menu {
             position: fixed; top: 0; right: -100%;
             width: 85vw; max-width: 380px; height: 100vh;
@@ -125,7 +123,6 @@
             z-index: 10002; opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
         }
         .side-menu-overlay.show { opacity: 1; pointer-events: auto; }
-        /* ✅ تم إزالة border-radius: 50% */
         .side-menu-logo { display: block; margin: 0 auto 18px; height: 75px; width: 75px; object-fit: contain; background: transparent; border: none; box-shadow: none; }
         .side-menu-links { list-style: none; display: flex; flex-direction: column; gap: 4px; }
         .side-menu-links a { text-decoration: none; color: var(--text); font-weight: 600; padding: 12px 16px; border-radius: var(--radius-md); display: block; transition: var(--transition); border: 1px solid transparent; font-size: 0.9rem; }
@@ -136,10 +133,8 @@
         /* ============ القسم الرئيسي ============ */
         .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; padding: 140px 18px 50px; }
         .hero-container { position: relative; z-index: 1; max-width: 800px; }
-        /* ✅ تم إزالة border-radius: 50% من الإطار */
         .hero-logo-frame { display: inline-block; background: transparent; backdrop-filter: none; border-radius: 0; padding: 0; margin-bottom: 22px; border: none; box-shadow: none; animation: floatLogo 6s ease-in-out infinite; }
         @keyframes floatLogo { 0%,100%{transform:translateY(0)scale(1);} 50%{transform:translateY(-12px)scale(1.03);} }
-        /* ✅ تم إزالة border-radius: 50% */
         .hero-logo { width: 160px; height: auto; border-radius: 0; object-fit: contain; background: transparent; display: block; }
         .hero-badge { display: inline-block; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--black); padding: 7px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 16px; letter-spacing: 1.5px; box-shadow: var(--shadow-gold); }
         .hero h1 { font-family: 'El Messiri', sans-serif; font-size: clamp(2rem, 5.5vw, 4rem); font-weight: 700; line-height: 1.2; margin-bottom: 10px; background: linear-gradient(180deg, var(--white) 30%, var(--gold-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
@@ -248,7 +243,6 @@
         .whatsapp-chat-body .quick-reply { display: block; width: 100%; text-align: right; padding: 8px 12px; background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.2); border-radius: var(--radius-sm); color: var(--green); margin-bottom: 6px; cursor: pointer; font-weight: 600; transition: var(--transition); font-family: 'Cairo', sans-serif; font-size: 0.8rem; }
         .whatsapp-chat-body .quick-reply:hover { background: rgba(37,211,102,0.2); }
 
-        /* ✅ الأزرار العائمة - تحت بعضها البعض */
         .floating-buttons {
             position: fixed; bottom: 18px; right: 18px;
             display: flex; flex-direction: column; gap: 10px;
@@ -273,12 +267,10 @@
         .modal-close:hover { background: #c0392b; color: #fff; transform: rotate(90deg); }
 
         .footer { background: var(--brown-dark); border-top: 1px solid rgba(200,150,62,0.2); text-align: center; padding: 35px 18px 25px; color: var(--text); }
-        /* ✅ تم إزالة border-radius: 50% */
         .footer-logo { height: 70px; width: auto; border-radius: 0; object-fit: contain; background: transparent; border: none; margin-bottom: 15px; }
         .footer h3 { font-family: 'El Messiri', sans-serif; color: var(--gold); margin-bottom: 5px; font-size: 1.1rem; }
         .footer a { color: var(--gold-light); text-decoration: none; }
 
-        /* ============ تجاوب ============ */
         @media (max-width: 1024px) {
             .nav-links { display: none; }
             .menu-toggle { display: flex; align-items: center; justify-content: center; }
@@ -321,7 +313,6 @@
 </head>
 <body>
 
-    <!-- ✅ شريط العروض - z-index عادي -->
     <div class="promo-bar"><i class="fas fa-fire"></i> خصم <strong>١٥٪</strong> على المطابخ والمغاسل &nbsp;|&nbsp; كود: <span class="promo-code">MAKKAWI15</span></div>
 
     <canvas id="marble-canvas"></canvas>
@@ -329,11 +320,9 @@
     <div class="gold-particles" id="goldParticles"></div>
     <div id="progress-bar"></div>
 
-    <!-- ✅ القائمة الجانبية - z-index أعلى من شريط العروض -->
     <div class="side-menu-overlay" id="sideMenuOverlay"></div>
     <div class="side-menu" id="sideMenu">
         <button class="side-menu-close" id="sideMenuClose">✕</button>
-        <!-- ✅ لوجو بدون دائرة -->
         <img src="https://i.imgur.com/AhqkSdY.png" alt="مكاوي للرخام" class="side-menu-logo" onerror="this.src='https://i.imgur.com/hQq5gDs.png'">
         <ul class="side-menu-links">
             <li><a href="#home" data-close>🏠 الرئيسية</a></li>
@@ -350,10 +339,8 @@
         </ul>
     </div>
 
-    <!-- شريط التنقل -->
     <nav class="navbar" id="navbar">
         <a href="#home" class="nav-brand">
-            <!-- ✅ لوجو بدون دائرة -->
             <img src="https://i.imgur.com/AhqkSdY.png" alt="مكاوي للرخام" class="nav-logo-img" onerror="this.src='https://i.imgur.com/hQq5gDs.png'">
             <span class="nav-brand-text">مكاوي للرخام</span>
         </a>
@@ -369,11 +356,9 @@
         <button class="menu-toggle" id="menuToggle" aria-label="القائمة">☰</button>
     </nav>
 
-    <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-logo-frame">
-                <!-- ✅ لوجو بدون دائرة -->
                 <img src="https://i.imgur.com/AhqkSdY.png" alt="مكاوي للرخام" class="hero-logo" onerror="this.src='https://i.imgur.com/hQq5gDs.png'">
             </div>
             <div class="hero-badge">منذ 20 عاماً من الخبرة</div>
@@ -388,7 +373,6 @@
         </div>
     </section>
 
-    <!-- من نحن -->
     <section class="section" id="about" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">من نحن</span><h2 class="section-title">مكاوي للرخام والغرانيت</h2><div class="section-line"></div></div>
         <div style="max-width:750px;margin:0 auto;text-align:center;" data-aos="fade-up" data-aos-delay="200">
@@ -398,19 +382,16 @@
         </div>
     </section>
 
-    <!-- المنتجات -->
     <section class="section" id="marble-types" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">منتجاتنا وخدماتنا</span><h2 class="section-title">تشكيلتنا المميزة</h2><div class="section-line"></div></div>
         <div class="marble-grid" id="marbleGrid"></div>
     </section>
 
-    <!-- كلاتيه -->
     <section class="section" id="clatite" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">تشكيلة خاصة</span><h2 class="section-title">كلاتيه مفقش</h2><div class="section-line"></div></div>
         <div class="clatite-grid" id="clatiteGrid"></div>
     </section>
 
-    <!-- خدمات -->
     <section class="section" id="services" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">خدماتنا</span><h2 class="section-title">ماذا نقدم؟</h2><div class="section-line"></div></div>
         <div class="services-grid">
@@ -423,7 +404,6 @@
         </div>
     </section>
 
-    <!-- خطوات -->
     <section class="section" id="process" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">خطوات العمل</span><h2 class="section-title">كيف نعمل؟</h2><div class="section-line"></div></div>
         <div class="timeline-steps">
@@ -435,14 +415,12 @@
         </div>
     </section>
 
-    <!-- 360 -->
     <section class="section" id="gallery-360" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">معرض تفاعلي</span><h2 class="section-title">معرض 360 درجة</h2><div class="section-line"></div></div>
         <div class="viewer-360" id="viewer360"><img src="https://i.imgur.com/GWMLo9q.png" alt="معرض 360" id="viewerImg" onerror="this.parentElement.innerHTML='<p style=color:var(--gold);padding:30px;text-align:center;>🔄 اسحب للاستكشاف</p>'"><div class="drag-hint">👆 اسحب يمين ويسار</div></div>
         <div class="viewer-controls"><button class="viewer-btn" onclick="rotateViewer(-30)"><i class="fas fa-arrow-right"></i></button><button class="viewer-btn" onclick="resetViewer()"><i class="fas fa-sync-alt"></i></button><button class="viewer-btn" onclick="rotateViewer(30)"><i class="fas fa-arrow-left"></i></button></div>
     </section>
 
-    <!-- آراء -->
     <section class="section" id="testimonials" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">آراء الزبائن</span><h2 class="section-title">ماذا يقول عملاؤنا؟</h2><div class="section-line"></div></div>
         <div class="testimonials-grid">
@@ -452,7 +430,6 @@
         </div>
     </section>
 
-    <!-- نموذج -->
     <section class="section" id="quote" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">طلب عرض سعر</span><h2 class="section-title">اطلب عرض سعر مجاني</h2><div class="section-line"></div></div>
         <div class="quote-form" id="quoteForm">
@@ -467,14 +444,14 @@
         </div>
     </section>
 
-    <!-- خريطة -->
+    <!-- ✅ الخريطة مع اسم مكاوي للرخام والغرانيت -->
     <section class="section" id="map-section" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">موقعنا</span><h2 class="section-title">موقع المعمل</h2><p style="color:var(--text);opacity:0.7;font-size:0.9rem;">دمشق - سلمية - مقابل شركة عوامة</p><div class="section-line"></div></div>
-        <!-- ✅ رابط الخريطة المحدث -->
-        <div class="map-container"><iframe src="https://maps.google.com/maps?q=H8HR%2B5WR%D8%8C%2B%D8%B6%D8%A7%D8%AD%D9%8A%D8%A9%2B%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D8%8C%2B%D8%B3%D9%88%D8%B1%D9%8A%D8%A7&sll=33.5773147428739,36.34236373007297&output=embed" allowfullscreen="" loading="lazy"></iframe></div>
+        <div class="map-container">
+            <iframe src="https://maps.google.com/maps?q=%D9%85%D9%83%D8%A7%D9%88%D9%8A%20%D9%84%D9%84%D8%B1%D8%AE%D8%A7%D9%85%20%D9%88%D8%A7%D9%84%D8%BA%D8%B1%D8%A7%D9%86%D9%8A%D8%AA&amp;output=embed" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </section>
 
-    <!-- تواصل -->
     <section class="section" id="contact" data-aos="fade-up">
         <div class="section-header"><span class="section-badge">تواصل معنا</span><h2 class="section-title">نسعد بخدمتكم</h2><div class="section-line"></div></div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;max-width:800px;margin:0 auto;">
@@ -485,21 +462,18 @@
     </section>
 
     <footer class="footer">
-        <!-- ✅ لوجو بدون دائرة -->
         <img src="https://i.imgur.com/AhqkSdY.png" alt="مكاوي للرخام" class="footer-logo" onerror="this.src='https://i.imgur.com/hQq5gDs.png'">
         <h3>مكاوي للرخام والغرانيت</h3><p style="font-size:0.85rem;">الحاج أبو يوسف</p>
         <p style="opacity:0.7;margin-bottom:10px;font-size:0.8rem;">دمشق - سليمة - مقابل شركة عوامة</p>
         <p style="opacity:0.6;font-size:0.75rem;">© 2026 جميع الحقوق محفوظة</p>
     </footer>
 
-    <!-- أزرار عائمة -->
     <div class="floating-buttons">
         <button class="whatsapp-float" id="whatsappFloat" title="واتساب"><i class="fab fa-whatsapp"></i></button>
         <a href="tel:+963932851468" class="call-float" title="اتصل"><i class="fas fa-phone"></i></a>
         <button class="music-toggle" id="musicToggle" title="موسيقى"><i class="fas fa-music"></i></button>
     </div>
 
-    <!-- دردشة -->
     <div class="whatsapp-chat" id="whatsappChat">
         <div class="whatsapp-chat-header"><i class="fab fa-whatsapp"></i> واتساب</div>
         <div class="whatsapp-chat-body">
@@ -517,25 +491,20 @@
     <script>
         AOS.init({ duration: 800, easing: 'ease-out-cubic', once: false, offset: 80 });
 
-        // خلفية
         const canvas=document.getElementById('marble-canvas'),ctx=canvas.getContext('2d');let w,h;
         function rc(){w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;}rc();window.addEventListener('resize',rc);
         const blocks=[];for(let i=0;i<18;i++)blocks.push({x:Math.random()*w,y:Math.random()*h,z:Math.random()*400+100,size:Math.random()*80+30,speed:Math.random()*0.5+0.2,color:`hsl(${35+Math.random()*15},${40+Math.random()*30}%,${20+Math.random()*25}%)`,border:`rgba(200,150,62,${Math.random()*0.4+0.1})`,rotation:Math.random()*Math.PI*2,rotSpeed:(Math.random()-0.5)*0.01});
         function draw(){ctx.clearRect(0,0,w,h);blocks.forEach(b=>{b.y+=b.speed;b.rotation+=b.rotSpeed;if(b.y>h+b.size){b.y=-b.size;b.x=Math.random()*w;}const s=200/(b.z+200),x=b.x-(b.x-w/2)*(1-s),y=b.y-(b.y-h/2)*(1-s),sz=b.size*s;ctx.save();ctx.translate(x,y);ctx.rotate(b.rotation);ctx.fillStyle='rgba(0,0,0,0.4)';ctx.fillRect(-sz/2+4,-sz/2+4,sz,sz);const g=ctx.createLinearGradient(-sz/2,-sz/2,sz/2,sz/2);g.addColorStop(0,b.color);g.addColorStop(0.5,b.border);g.addColorStop(1,b.color);ctx.fillStyle=g;ctx.fillRect(-sz/2,-sz/2,sz,sz);ctx.strokeStyle='rgba(255,255,255,0.05)';ctx.lineWidth=1;for(let j=0;j<2;j++){ctx.beginPath();ctx.moveTo(-sz/2+Math.random()*sz,-sz/2);ctx.quadraticCurveTo(-sz/2+Math.random()*sz,Math.random()*sz-sz/2,-sz/2+Math.random()*sz,sz/2);ctx.stroke();}ctx.restore();});requestAnimationFrame(draw);}draw();
 
-        // جزيئات
         const pc=document.getElementById('goldParticles');for(let i=0;i<25;i++){const p=document.createElement('div');p.classList.add('gold-particle');p.style.left=Math.random()*100+'%';p.style.top=Math.random()*100+'%';p.style.width=Math.random()*4+2+'px';p.style.height=p.style.width;p.style.animationDelay=Math.random()*5+'s';p.style.animationDuration=Math.random()*4+3+'s';pc.appendChild(p);}
 
-        // كتابة
         const phrases=['تفصيل المطابخ الرخامية','أجود أنواع الغرانيت','المغاسل الفاخرة','شلالات الحدائق','بحرات دمشقية'];
         let pi=0,ci=0,del=false;const tt=document.getElementById('typingText');
         function te(){const c=phrases[pi];if(del){tt.textContent=c.substring(0,ci-1);ci--;}else{tt.textContent=c.substring(0,ci+1);ci++;}if(!del&&ci===c.length){setTimeout(()=>del=true,1500);}else if(del&&ci===0){del=false;pi=(pi+1)%phrases.length;}setTimeout(te,del?50:100);}te();
 
-        // عداد
         function ac(){document.querySelectorAll('.achievement-number').forEach(e=>{const t=+e.getAttribute('data-count'),d=2000,s=t/(d/16);let c=0;const i=setInterval(()=>{c+=s;if(c>=t){e.textContent=t.toLocaleString('ar');clearInterval(i);}else{e.textContent=Math.floor(c).toLocaleString('ar');}},16);});}
         const ob=new IntersectionObserver((e)=>{if(e[0].isIntersecting){ac();ob.disconnect();}},{threshold:0.5});const as=document.querySelector('.achievements');if(as)ob.observe(as);
 
-        // منتجات
         const marbleTypes=[{name:'رخام',desc:'تشكيلة واسعة من الرخام الطبيعي والمستورد بأجود الأنواع',img:'https://i.imgur.com/F3kxu5f.png',badge:'🪨 رخام',bestseller:false},{name:'ديكور',desc:'تصميم وتنفيذ ديكورات الرخام بأحدث الأساليب العصرية',img:'https://i.imgur.com/Fxddfu9.png',badge:'🎨 ديكور',bestseller:true},{name:'غرانيت',desc:'تشكيلة واسعة من الغرانيت الفاخر يتحمل الحرارة والرطوبة',img:'https://i.imgur.com/bW7GXu7.png',badge:'💎 غرانيت',bestseller:false},{name:'شلالات الحدائق',desc:'تغطية شلالات الحدائق والمزارع بأجود أنواع الرخام',img:'https://i.imgur.com/HpAytKF.png',badge:'🌊 شلالات',bestseller:false},{name:'بحرات',desc:'تنفيذ بحرات دمشقية منزلية بتصاميم تقليدية أصيلة',img:'https://i.imgur.com/GWMLo9q.png',badge:'🏊 بحرات',bestseller:false},{name:'شلالات مودرن',desc:'تنفيذ شلالات للفلل والمنازل بتصاميم عصرية حديثة',img:'https://i.imgur.com/93IwF0k.png',badge:'✨ مودرن',bestseller:true},{name:'تحف شرقية',desc:'تحف شرقية وعالمية للمنازل من الرخام الفاخر',img:'https://i.imgur.com/7p79uZB.png',badge:'🏺 تحف',bestseller:false},{name:'ديكورات شلالات',desc:'شلالات للمنازل بتصاميم ديكورية مميزة',img:'https://i.imgur.com/kzswUtF.png',badge:'🏡 ديكورات',bestseller:false},{name:'فريق العمل',desc:'عمالنا يتميزون بالخبرة الطويلة في مجال الرخام',img:'https://i.imgur.com/dmtmznI.png',badge:'👷 فريقنا',bestseller:false},{name:'فاخر',desc:'ديكور فاخر يصلح لجميع الأذواق بأعلى معايير الجودة',img:'https://i.imgur.com/8GQpGT9.png',badge:'👑 فاخر',bestseller:true}];
         const clatiteImages=['https://i.imgur.com/1R5JJ3K.png','https://i.imgur.com/vg68IX6.png','https://i.imgur.com/pMKseB4.png','https://i.imgur.com/zKNu7O8.png','https://i.imgur.com/YpTyot5.png','https://i.imgur.com/8dvb7NA.png','https://i.imgur.com/80oEBW5.png','https://i.imgur.com/wZIabZ8.png','https://i.imgur.com/8yY9Uai.png'];
 
@@ -553,7 +522,6 @@
         function shareOnWhatsApp(name){window.open(`https://wa.me/?text=${encodeURIComponent('شاهد '+name+' من مكاوي للرخام')}`);}
         function copyLink(name){navigator.clipboard.writeText(`شاهد ${name} على موقع مكاوي للرخام`);alert('✅ تم النسخ!');}
 
-        // 360
         let vr=0;const vi=document.getElementById('viewerImg');let id=false,sx=0;const v3=document.getElementById('viewer360');
         v3.addEventListener('mousedown',e=>{id=true;sx=e.clientX;e.preventDefault();});
         v3.addEventListener('mousemove',e=>{if(!id)return;vr+=(e.clientX-sx)*0.5;vi.style.transform=`rotateY(${vr}deg) scale(1.4)`;sx=e.clientX;});
@@ -564,7 +532,6 @@
         function rotateViewer(d){vr+=d;vi.style.transform=`rotateY(${vr}deg) scale(1.4)`;}
         function resetViewer(){vr=0;vi.style.transform='rotateY(0deg) scale(1)';}
 
-        // واتساب
         const WAN='963957598751';
         function sendWhatsApp(msg){window.open(`https://wa.me/${WAN}?text=${encodeURIComponent(msg)}`,'_blank');}
         document.getElementById('whatsappFloat').addEventListener('click',function(e){e.preventDefault();document.getElementById('whatsappChat').classList.toggle('open');});
@@ -577,11 +544,9 @@
             document.getElementById('formSuccess').style.display='block';document.querySelector('.form-submit').style.display='none';
         }
 
-        // موسيقى
         const bgm=document.getElementById('bgMusic'),mt=document.getElementById('musicToggle');let ip=false;
         mt.addEventListener('click',()=>{if(ip){bgm.pause();mt.classList.remove('playing');mt.innerHTML='<i class="fas fa-music"></i>';ip=false;}else{bgm.play().catch(()=>{});mt.classList.add('playing');mt.innerHTML='<i class="fas fa-volume-up"></i>';ip=true;}});
 
-        // ✅ قائمة جانبية - z-index أعلى من كل شيء
         const sm=document.getElementById('sideMenu'),smo=document.getElementById('sideMenuOverlay');
         document.getElementById('menuToggle').addEventListener('click',()=>{sm.classList.add('open');smo.classList.add('show');document.body.style.overflow='hidden';});
         document.getElementById('sideMenuClose').addEventListener('click',()=>{sm.classList.remove('open');smo.classList.remove('show');document.body.style.overflow='';});
